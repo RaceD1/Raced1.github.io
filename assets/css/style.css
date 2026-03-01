@@ -1,0 +1,498 @@
+/* ============================================================
+   RACED1 - Main Stylesheet
+   ============================================================
+   Organization (keep this order):
+   1. Font Declarations
+   2. CSS Custom Properties (variables)
+   3. CSS Reset & Base
+   4. Typography
+   5. Layout (Header, Footer, Navigation)
+   6. Components (Buttons, Cards, Forms, Hero)
+   7. Page-Specific Styles
+   8. Utilities
+   9. Animations
+   10. Media Queries (responsive)
+   ============================================================ */
+
+/* ============================================================
+   2. CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================================
+*/
+
+:root {
+  /* Brand Colors - from client's logo */
+  --color-primary: #c6151c; /* Brand Red */
+  --color-primary-dark: #9e1117; /* Darker red for hover states */
+  --color-secondary: #c2940c; /* Accent Gold */
+  --color-secondary-dark: #9a7609; /* Darker gold for hover */
+
+  /* Neutral Colors */
+  --color-bg:             #FFFFFF;
+  --color-bg-elevated:    #F5F5F5;
+  --color-text:           #222222;
+  --color-text-bright:    #000000;
+  --color-text-muted:     #444444;
+  --color-border:         #DDDDDD;
+
+  /* Typography - using fallbacks until custom fonts are ready */
+  --font-heading: "Arial Black", "Helvetica Neue", sans-serif;
+  --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  /* TODO: When fonts are ready, change these to:
+     --font-heading: 'Brisick', 'Arial Black', sans-serif;
+     --font-body: 'Cruiser', 'Segoe UI', sans-serif;
+  */
+
+  /* Spacing Scale - consistent spacing throughout the site */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem; /* 8px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+  --space-3xl: 4rem; /* 64px */
+  --space-4xl: 6rem; /* 96px */
+
+  /* Layout */
+  --max-width: 1200px;
+  --max-width-narrow: 720px;
+  --header-height: 80px;
+  --border-radius-sm: 4px;
+  --border-radius-lg: 8px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Shadows */
+  --shadow-glow-red: 0 0 20px rgba(198, 21, 28, 0.3);
+  --shadow-glow-gold: 0 0 20px rgba(196, 167, 82, 0.3);
+}
+
+/* ============================================================
+   3. CSS RESET & BASE
+   ============================================================
+   Removing all default spacing and browser inconsistencies.
+   ============================================================
+*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+/* ============================================================
+   4. TYPOGRAPHY
+   ============================================================
+   Controls how all text looks across the site.
+   ============================================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-bright);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+p {
+  margin-block-end: var(--space-md);
+}
+
+/* ============================================================
+   5. LAYOUT
+   ============================================================
+   Header, navigation, footer, and the container that wraps
+   all your content to a readable max-width.
+   ============================================================ */
+
+/* --- Container --- */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+.container--narrow {
+  max-width: var(--max-width-narrow);
+}
+
+/* --- Header --- */
+.header {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  height: var(--header-height);
+  background-color: transparent;
+  backdrop-filter: none;
+  z-index: 1000;
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-inline: var(--space-2xl);
+  background-color: transparent;
+}
+
+.header__logo {
+  height: 40px;
+  width: auto;
+}
+
+
+/* Language Toggle Button */
+.lang-toggle {
+  background: transparent;
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  padding: var(--space-xs) var(--space-md);
+  font-size: 0.85rem;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.lang-toggle:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Offset content below fixed header */
+main {
+  padding-top: 0;
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: var(--color-bg-elevated);
+  padding: var(--space-3xl) 0 var(--space-xl);
+  color: var(--color-text);
+}
+
+.footer__title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-secondary);
+  margin-block-end: var(--space-md);
+  font-weight: bold;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+}
+
+.social-icon:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: rgba(198, 21, 28, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   6. COMPONENTS
+   ============================================================
+   Reusable pieces: buttons, hero, cards, forms.
+   These are used across multiple pages.
+   ============================================================ */
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-md) var(--space-xl);
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  min-height: 48px;
+}
+
+/* Primary button - Red background */
+.btn--primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-glow-red);
+  transform: translateY(-2px);
+}
+
+/* Secondary button - Gold outline */
+.btn--secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-bg);
+  border-color: var(--color-secondary);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-secondary-dark);
+  color: var(--color-bg);
+  border-color: var(--color-secondary-dark);
+  box-shadow: var(--shadow-glow-gold);
+  transform: translateY(-2px);
+}
+
+/* --- Hero Section --- */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-elevated);
+  overflow: hidden;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero__tagline {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-secondary);
+  margin-block-end: var(--space-md);
+  font-weight: bold;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--color-text-bright);
+  line-height: 1.2;
+  margin-block-end: var(--space-lg);
+}
+
+.hero__title .accent {
+  color: var(--color-primary);
+}
+
+.hero__description {
+  font-size: 1.1rem;
+  color: var(--color-text-bright);
+  max-width: 600px;
+  margin-block-end: var(--space-xl);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* --- Section --- */
+.section {
+  padding: var(--space-4xl) 0;
+}
+
+.section--alt {
+  background-color: var(--color-bg-elevated);
+}
+
+.section__header {
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.section__title {
+  margin-bottom: var(--space-md);
+}
+
+.section__description {
+  max-width: 600px;
+  margin-inline: auto;
+  color: var(--color-text-bright);
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.section__subtitle {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-secondary);
+  margin-top: var(--space-sm);
+  font-weight: bold;
+}
+
+/* --- Cards --- */
+.card {
+  background-color: transparent;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  border-color: transparent;
+  transform: translateY(-4px);
+  box-shadow: none;
+}
+
+.card__title {
+  font-size: 1.1rem;
+  color: var(--color-text-bright);
+  margin-block-end: var(--space-sm);
+}
+
+.card__text {
+  font-size: 0.95rem;
+  color: var(--color-text-bright);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   10. MEDIA QUERIES (Responsive)
+   ============================================================
+*/
+
+/* Tablet and below - sticky header */
+@media (max-width: 1024px) {
+  .header {
+    background-color: var(--color-bg-elevated);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  main {
+    padding-top: var(--header-height);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #join [style*="grid-template-columns: repeat(2"],
+  #founders [style*="grid-template-columns: repeat(2"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  #ecosystem [style*="grid-template-columns"] {
+    gap: 0 !important;
+  }
+  
+  #join [style*="grid-template-columns"] {
+    gap: 1rem !important;
+  }
+
+  #join [style*="grid-template-columns"] > div {
+    padding: 1rem 0 !important;
+  }
+
+  .join-divider {
+    display: block !important;
+  }
+
+  .hero img[alt="Race Diwan Logo"] {
+    height: 100px !important;
+  }
+
+  /* Hero adjustments */
+  .hero {
+    min-height: calc(80vh - var(--header-height)) !important;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  /* Reduce section padding on mobile */
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  :root {
+    --space-lg: 1rem;
+    --space-xl: 1.5rem;
+    --space-2xl: 2rem;
+    --space-3xl: 2.5rem;
+    --space-4xl: 3rem;
+  }
+}

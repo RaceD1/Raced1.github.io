@@ -1,0 +1,33 @@
+/* ============================================================
+   RTL (Right-to-Left) Overrides for Arabic
+   ============================================================
+   Loaded AFTER style.css on Arabic pages only.
+   Flips layout direction and adjusts for RTL reading.
+   ============================================================ */
+
+/* Base direction */
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+/* Arabic-friendly fonts with better line height */
+html[dir="rtl"] body {
+  font-family: "Segoe UI", "Tahoma", "Arial", sans-serif;
+  line-height: 1.8;
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3 {
+  font-family: "Arial Black", "Tahoma", sans-serif;
+}
+
+/* Keep Brisick font for the accent text */
+html[dir="rtl"] .hero__title .accent {
+  font-family: 'Brisick', 'Arial Black', sans-serif;
+}
+
+/* Header flips: logo right, language button left */
+html[dir="rtl"] .header__inner {
+  flex-direction: row-reverse;
+}

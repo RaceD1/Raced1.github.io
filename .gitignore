@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# OS files (Mac/Windows junk files)
+.DS_Store
+Thumbs.db
+
+# Editor settings (personal to each developer)
+.vscode/
+
+# Build output (we'll add this later if needed)
+dist/
+
+# Environment variables (never commit secrets)
+.env
