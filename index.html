@@ -14,34 +14,40 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="icon" href="/assets/images/logos/favicon.ico" type="image/x-icon" />
     <style>
-      
+
       html {
         background-color: #000000;
       }
-
+      
       body {
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        overflow: auto;
+        overflow: hidden;
+      }
+      
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
         background-image: url('/assets/images/background/Traditional_majlis.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed;
+        z-index: 0;
       }
-
+      
       body::before {
         content: "";
         position: fixed;
         inset: 0;
         background-color: rgba(0, 0, 0, 0.8);
-        z-index: 0;
+        z-index: 1;
       }
-
+      
       body > * {
         position: relative;
-        z-index: 1;
+        z-index: 2;
       }
 
       main {
