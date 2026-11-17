@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Plan a medida · Honda Ibiza</title>
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#FFFFF3; --sand:#F0EBE0; --gold:#C4974A; --obs:#1C1917; --stone:#78736A;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'DM Sans',Arial,sans-serif;
+  --gut:clamp(20px,5vw,56px);
+  --ease:cubic-bezier(.16,1,.3,1); --dur:.7s; --ui:.25s; --navh:52px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:0}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{background:var(--canvas);color:var(--obs);font-family:var(--sans);font-size:16px;line-height:1.7;font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+b,strong{font-weight:500}
+button,input{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* progreso */
+/* menú fijo: aparece al salir de la portada; la raya de progreso es su borde inferior */
+.nav{display:flex;align-items:center;gap:clamp(20px,3vw,44px);position:sticky;top:0;left:0;right:0;height:var(--navh);padding:0 var(--gut);background:rgba(28,25,23,.96);border-bottom:1px solid rgba(255,255,243,.14);z-index:60}
+.js .nav{position:fixed;transform:translateY(-101%);transition:transform var(--ui) ease}
+.js .nav.on{transform:none}
+/* con JavaScript, en reposo solo se ve la marca y la raya de progreso; los nombres salen al subir el puntero, al dar foco con el teclado o al tocar la marca (táctil). Siguen en el DOM y son enlaces reales. */
+.js .nav-l{opacity:0;pointer-events:none;transition:opacity var(--dur) var(--ease)}
+.js .nav.open .nav-l,.js .nav-l:focus-within{opacity:1;pointer-events:auto}
+.nav-marca{display:block;flex:none;line-height:0}
+.nav-marca svg{height:20px;width:auto;display:block}
+.nav-l{position:relative;list-style:none;display:flex;gap:clamp(18px,2.2vw,34px);margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.nav-l::-webkit-scrollbar{display:none}
+.nav-l a{display:block;position:relative;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(255,255,243,.62);padding:19px 0;white-space:nowrap;transition:color var(--ui) ease}
+.nav-l a:hover{color:var(--canvas)}
+.nav-l a::after{content:"";position:absolute;left:0;right:0;bottom:13px;height:1.5px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--ui) ease}
+.nav-l a[aria-current]::after{transform:scaleX(1)}
+#progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;pointer-events:none}
+
+/* ---------- ritmo de secciones ---------- */
+.s{scroll-margin-top:calc(var(--navh) + 28px - clamp(80px,11vw,148px));padding:clamp(80px,11vw,148px) 0;position:relative;--ink:var(--obs);--soft:var(--stone);--line:rgba(28,25,23,.12);--card:var(--sand)}
+.s--canvas{background:var(--canvas)}
+.s--sand{background:var(--sand);--card:var(--canvas)}
+.s--dark{background:var(--obs);color:var(--canvas);--ink:var(--canvas);--soft:rgba(255,255,243,.68);--line:rgba(255,255,243,.16);--card:rgba(255,255,243,.04)}
+.w{width:min(1120px,calc(100% - 2*var(--gut)));margin:0 auto}
+.s--dark+.s--dark{padding-top:clamp(56px,7vw,96px);scroll-margin-top:calc(var(--navh) + 28px - clamp(56px,7vw,96px))}
+.s--dark+.s--dark::before{content:"";position:absolute;top:0;left:max(var(--gut),calc((100% - 1120px)/2));right:max(var(--gut),calc((100% - 1120px)/2));height:1px;background:rgba(255,255,243,.16)}
+.w--wide{width:min(1200px,calc(100% - 2*var(--gut)))}
+
+/* tipografía */
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);line-height:1.5}
+.t1,.t2,.t3,.t4{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--ink)}
+.t2{font-size:clamp(36px,4.6vw,60px);line-height:1.08;letter-spacing:-.005em}
+.t3{font-size:clamp(28px,3vw,38px);line-height:1.15}
+.t4{font-size:clamp(22px,2vw,26px);line-height:1.2}
+.lead{font-size:clamp(16px,1.25vw,18px);line-height:1.75;color:var(--soft);max-width:60ch}
+.sec-head{max-width:780px;margin-bottom:clamp(44px,6vw,80px)}
+.sec-head .eyebrow{margin-bottom:22px}
+.sec-head .lead{margin-top:26px}
+.sub-head{margin-bottom:clamp(28px,4vw,48px);max-width:700px}
+.sub-head .eyebrow{margin-bottom:14px}
+.sub-head .lead{margin-top:16px}
+.rule{height:1px;background:var(--line);border:0;margin:clamp(64px,8vw,104px) 0}
+.s .eyebrow{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);line-height:1.5}
+.n{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:20px;line-height:1}
+
+/* aparecer al entrar en pantalla */
+.js .rv{opacity:0;transform:translateY(14px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+
+/* ---------- 1 portada ---------- */
+.hero{min-height:100vh;min-height:100svh;background:var(--obs);color:var(--canvas);display:flex;flex-direction:column;justify-content:space-between;padding:clamp(28px,4vw,48px) 0 clamp(32px,4vw,52px);position:relative}
+.marca{display:block;height:26px;width:auto}
+.hero .marca{height:30px}
+.hero-main{padding:clamp(48px,10vh,120px) 0}
+.hero-main .eyebrow{margin-bottom:clamp(20px,3vw,32px)}
+.hero h1{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(54px,8.4vw,88px);line-height:1.08;letter-spacing:-.01em;color:var(--canvas)}
+.hero-promesa{margin-top:clamp(28px,4vw,48px);padding-top:clamp(24px,3vw,36px);border-top:1px solid var(--gold);max-width:640px;width:fit-content;font-family:var(--serif);font-style:italic;font-size:clamp(23px,2.5vw,32px);line-height:1.3;color:rgba(255,255,243,.9)}
+.hero-in{animation:rise var(--dur) var(--ease) both;animation-delay:calc(var(--i)*90ms + 120ms)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+.hero-motif{position:absolute;top:50%;right:max(var(--gut),calc((100% - 1120px)/2));width:min(36%,460px);transform:translateY(-50%);pointer-events:none}
+.hero-motif svg{display:block;width:100%;height:auto;overflow:visible}
+/* rosa de los vientos «Luce»: la misma en la portada y en el centro del diagrama */
+.st-c{fill:none;stroke:var(--gold)}
+.st-bg path{fill:var(--obs)}
+.st-fills path{fill:var(--gold);fill-opacity:.15}
+.st-lines path{fill:none;stroke:var(--gold);stroke-linejoin:miter}
+.hero-motif .st-c,.hero-motif .st-lines path{stroke-width:.5}
+.hero-motif .st-c{opacity:.7}
+.wm{display:inline-block;overflow:hidden;vertical-align:top;padding:.14em .16em .24em;margin:-.14em -.16em -.24em}
+.wd{display:inline-block}
+.hero-fecha{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,243,.68)}
+
+/* ---------- 2 franja ---------- */
+
+/* ---------- 3 hoy ---------- */
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px);align-items:start}
+.dos p{color:rgba(28,25,23,.84);font-size:clamp(16px,1.2vw,17.5px);line-height:1.8}
+.intro{margin-bottom:clamp(28px,3.4vw,44px)}
+.intro p{color:rgba(28,25,23,.84);font-size:clamp(16px,1.2vw,17.5px);line-height:1.8;max-width:60ch}
+.intro .saludo{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2vw,26px);margin-bottom:12px;color:var(--ink)}
+.cita{margin-top:clamp(56px,7vw,96px);padding-left:clamp(22px,3vw,40px);border-left:1px solid var(--gold);max-width:860px}
+.cita blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(30px,3.8vw,52px);line-height:1.15;color:var(--ink)}
+.cita figcaption{margin-top:18px}
+
+/* ---------- 4 tabla hoy / con el sistema ---------- */
+.sit{width:100%;border-collapse:collapse}
+.sit th,.sit td{text-align:left;vertical-align:top;padding:30px 28px 30px 0;border-top:1px solid var(--line);font-weight:400}
+.sit thead th{border-top:0;padding-bottom:16px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.sit tbody th{width:27%;font-family:var(--serif);font-style:italic;font-size:clamp(22px,2vw,26px);line-height:1.2;color:var(--ink)}
+.sit td{font-size:15.5px;line-height:1.7;color:var(--soft);width:30%}
+.sit td.con{width:43%;color:var(--ink);padding-right:0;position:relative}
+.sit td.con::before{content:"";position:absolute;left:-18px;top:36px;bottom:36px;width:1px;background:var(--gold)}
+.lbl{display:none}
+
+/* ---------- 5 canales y funcionalidades ---------- */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(40px,4vw,56px) clamp(28px,3.4vw,56px)}
+.card{border-top:1px solid var(--line);padding:26px 0 0;display:flex;flex-direction:column;gap:14px}
+.card-h{display:flex;align-items:center;justify-content:space-between}
+/* funcionalidades: tres por fila y la última fila, sea de una, dos o tres, centrada */
+.g3--c{display:flex;flex-wrap:wrap;justify-content:center;--gx:clamp(28px,3.4vw,56px);column-gap:var(--gx)}
+.g3--c>.card{width:calc((100% - 2*var(--gx))/3)}
+.cubre-h{margin:clamp(40px,5vw,64px) 0 clamp(20px,2.4vw,32px)}
+.cubre{margin-bottom:clamp(8px,1vw,16px)}
+.cubre .card p{font-size:14.5px}
+/* iconos de la casa: los del diagrama, mismo trazo; en la página solo en canales, funcionalidades y La Base */
+.ic{width:24px;height:24px;flex:none;fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;display:block}
+.ic--c{width:28px;height:28px;stroke-width:1.45}
+.ti{display:flex;gap:12px;align-items:flex-start}
+.ti .ic{margin-top:.12em}
+.card .t4{margin-top:2px}
+.card p{font-size:15px;line-height:1.7;color:var(--soft)}
+.cruce-w{margin-top:clamp(64px,8vw,104px)}
+.cruce{width:100%;border-collapse:collapse;font-size:14.5px}
+.cruce th,.cruce td{text-align:left;vertical-align:top;padding:20px 20px 20px 0;border-top:1px solid var(--line);font-weight:400;line-height:1.5}
+.cruce thead th{border-top:0;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink);padding-bottom:16px;line-height:1.2}
+.cruce tbody th{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--ink);width:28%;line-height:1.2}
+.cruce td{color:var(--obs);width:24%}
+.cruce td.na{color:var(--stone);opacity:.7}
+.notas{margin-top:34px;display:grid;gap:14px;max-width:760px}
+.notas p{font-size:15px;color:var(--soft);padding-left:20px;border-left:1px solid var(--gold)}
+.base{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr);gap:clamp(28px,5vw,72px);background:var(--sand);padding:clamp(36px,4.6vw,64px);align-items:start}
+.base p{font-size:clamp(16px,1.2vw,17.5px);line-height:1.8;color:var(--ink);opacity:.86}
+
+/* tabla de canales y funcionalidades: frase encima, punto dorado donde trabaja, raya atenuada donde no */
+.cruce-t{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(22px,2vw,26px);line-height:1.2;color:var(--ink);margin-bottom:22px}
+.cruce td.si{padding-left:18px}
+.ic--m{display:none}
+.cruce .pt{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin:0 11px 1px -18px;vertical-align:middle}
+.cruce .ra{font-size:18px;line-height:1;color:var(--stone)}
+.cruce tbody tr.fila-rec{background:rgba(196,151,74,.04)}
+.cruce td.rec-t{padding-left:18px;color:var(--obs);width:auto}
+.notas.pq{margin-top:22px}
+.notas.pq p{font-size:13.5px}
+/* estrella de «Lo común»: la misma rosa de ocho puntas, en obsidiana, quieta */
+.base-star{display:none}
+@media (min-width:1001px){
+  .base>h4{grid-area:1/1}
+  .base>p{grid-area:1/2}
+  .base-star{display:block;grid-area:1/1;justify-self:end;align-self:center;width:clamp(150px,15vw,220px);height:auto;overflow:visible}
+}
+.bs-c{fill:none;stroke:var(--obs);stroke-width:1;vector-effect:non-scaling-stroke;opacity:.7}
+.bs-bg path{fill:var(--sand)}
+.bs-f path{fill:var(--obs);fill-opacity:.15}
+.bs-l path{fill:none;stroke:var(--obs);stroke-width:1;stroke-linejoin:miter;vector-effect:non-scaling-stroke}
+
+/* ---------- 6 el sistema en movimiento ---------- */
+.fx-chips{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-bottom:clamp(28px,3.4vw,44px)}
+.fx-chip{background:none;border:0;border-top:1px solid var(--line);text-align:left;cursor:pointer;padding:18px 18px 18px 0;position:relative;color:rgba(255,255,243,.5);font-size:14px;line-height:1.35;transition:color var(--ui) ease}
+.fx-chip:hover{color:rgba(255,255,243,.85)}
+.fx-chip .cn{display:block;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--gold);margin-bottom:6px;opacity:.7}
+.fx-chip.on{color:var(--canvas)}
+.fx-chip.on .cn{opacity:1}
+.fx-bar{position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left}
+.fx-wrap{position:relative}
+.fx-chips:empty{display:none}
+.fx-svg{display:block;width:100%;height:auto}
+.fx-svg-d{display:block}.fx-svg-m{display:none}
+.fx-wire{fill:none;stroke:rgba(255,255,243,.14);stroke-width:1}
+.fx-lit{fill:none;stroke:var(--gold);stroke-width:1.4}
+.fx-box{fill:rgba(255,255,243,.03);stroke:rgba(255,255,243,.2);stroke-width:1;transition:stroke .45s ease,fill .45s ease}
+.fx-ib{fill:none;stroke:rgba(255,255,243,.14);stroke-width:1;transition:stroke .45s ease}
+.fx-ic{color:rgba(255,255,243,.62);transition:color .45s ease}
+.fx-ic *{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.fx-t{font-family:var(--sans);font-weight:500;font-size:13.5px;fill:rgba(255,255,243,.88)}
+.fx-s{font-family:var(--sans);font-size:12px;fill:rgba(255,255,243,.62)}
+.fx-tm{font-size:12px}.fx-sm{font-size:10px}
+.fx-col{font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;fill:var(--gold)}
+.fx-hub .st-c{stroke:rgba(196,151,74,.4);stroke-width:1;vector-effect:non-scaling-stroke;transition:stroke .45s ease}
+.fx-hub .st-fills path{fill-opacity:.16;transition:fill-opacity .45s ease}
+.fx-hub .st-lines path{stroke:rgba(196,151,74,.85);stroke-width:1;vector-effect:non-scaling-stroke;transition:stroke .45s ease}
+.fx-ht{font-family:var(--serif);font-style:italic;font-size:22px;fill:var(--canvas)}
+.fx-hm .fx-ht{font-size:17px}
+.on>.fx-box{stroke:var(--gold);fill:rgba(196,151,74,.1)}
+.on>.fx-ib{stroke:rgba(196,151,74,.5)}
+.on>.fx-ic{color:var(--gold)}
+.fx-hub.on .st-fills path{fill-opacity:.34}
+.fx-hub.on .st-lines path{stroke:var(--gold)}
+.fx-hub.think .st-c{stroke:var(--gold)}
+.fx-packet{fill:var(--gold)}
+.fx-toast{opacity:0;transition:opacity .35s ease;pointer-events:none}
+.fx-toast.on{opacity:1}
+.fx-toast rect{fill:var(--obs);stroke:var(--gold);stroke-width:1}
+.fx-toast text{font-family:var(--sans);font-size:11px;fill:var(--canvas)}
+.fx-tools{display:none;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:clamp(20px,2.4vw,32px) 0 clamp(32px,4vw,48px);padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--soft)}
+.js .fx-tools{display:flex}
+.fx-leg{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.fx-leg i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-right:9px;vertical-align:middle}
+.fx-play{background:none;border:1px solid rgba(255,255,243,.34);color:var(--canvas);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:9px 18px;cursor:pointer;transition:border-color .25s,color .25s}
+.fx-play:hover{border-color:var(--gold);color:var(--gold)}
+.fx-sc h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(24px,2.4vw,30px);color:var(--canvas);margin-bottom:22px}
+.fx-sc ol{list-style:none;counter-reset:p;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(20px,2.4vw,36px)}
+.fx-sc li{counter-increment:p;font-size:14.5px;line-height:1.7;color:rgba(255,255,243,.78);border-top:1px solid rgba(255,255,243,.16);padding-top:16px;transition:opacity .4s ease,border-color .4s ease}
+.fx-sc li::before{content:counter(p);display:block;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--gold);margin-bottom:8px;line-height:1}
+.fx-sc li b{color:var(--canvas)}
+.js .fx-sc{display:none}
+.js .fx-sc.on{display:block}
+.js .fx-sc li{opacity:.34}
+.js .fx-sc li.now{opacity:1;border-top-color:var(--gold)}
+.js .fx-sc li.done{opacity:.85}
+.fx-sc+.fx-sc{margin-top:clamp(40px,5vw,64px)}
+.js .fx-sc+.fx-sc{margin-top:0}
+.fx-dots{display:none}
+/* el bloque del diagrama cabe entero en una ventana de 1280×720: fila de situaciones de una línea, diagrama más bajo y un solo paso (el que está en curso) con la leyenda y el botón en la misma franja. Sin JS, con movimiento reducido y en móvil, como antes. */
+@media (min-width:1001px){
+  .fx-chips{margin-bottom:14px;column-gap:14px}
+  .fx-chip{display:flex;align-items:baseline;gap:8px;padding:11px 0 11px;font-size:13px}
+  .fx-chip .cn{margin:0;font-size:16px}
+  .fx-svg-d{max-height:max(340px,calc(100vh - 250px))}
+}
+@media (min-width:1270px){
+  .fx-chips{grid-template-columns:repeat(5,auto);justify-content:space-between}
+  .fx-chip{white-space:nowrap}
+}
+@media (min-width:761px) and (prefers-reduced-motion:no-preference){
+  .js .fx{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:28px;align-items:center}
+  .js .fx>.fx-chips,.js .fx>.fx-wrap{grid-column:1/-1}
+  .js .fx-tools{display:contents}
+  .js .fx-sc{display:none}
+  .js .fx-sc.on{display:flex;align-items:center;gap:18px;grid-column:1;grid-row:3;min-height:48px;margin-top:12px}
+  .js .fx-sc h3{display:none}
+  .js .fx-sc ol{display:block}
+  .js .fx-sc li{display:none;border:0;padding:0;font-size:15px;line-height:1.5;opacity:1;color:rgba(255,255,243,.84)}
+  .js .fx-sc li.now{display:block;animation:fxin .45s var(--ease)}
+  .js .fx-sc li::before{display:none}
+  .js .fx-sc .fx-dots{display:flex;flex:none;gap:8px;align-items:center}
+  .fx-dots i{width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:.28;transform:scale(1)}
+  .fx-dots i.done{opacity:.6}
+  .fx-dots i.now{opacity:1;transform:scale(1.5)}
+  .js .fx-play{grid-column:2;grid-row:3;align-self:center;margin-top:12px}
+  .js .fx-leg{grid-column:1/-1;grid-row:4;margin-top:12px;font-size:12.5px}
+}
+@keyframes fxin{from{opacity:0}}
+
+/* ---------- 8 cómo trabajamos ---------- */
+/* línea temporal: sin JavaScript, las siete fases con su texto en lista; con JavaScript, horizontal en escritorio (clic o teclado abre el texto) y vertical en móvil */
+.tlx{margin-bottom:clamp(40px,5vw,64px)}
+.tlx-l{list-style:none}
+.tlx-f{position:relative;border-top:1px solid var(--line);padding:22px 0}
+.tlx-b{display:flex;gap:16px;align-items:center;width:100%;background:none;border:0;padding:0;text-align:left;color:var(--canvas);cursor:default}
+.js .tlx-b{cursor:pointer}
+.tlx-i{flex:none;width:44px;height:44px;border:1px solid rgba(255,255,243,.34);border-radius:50%;display:grid;place-items:center;background:var(--obs);transition:border-color var(--ui) ease,background-color var(--ui) ease}
+.tlx .ic{width:22px;height:22px}
+.tlx-tx{display:block;min-width:0}
+.tlx-n{display:block;font-family:var(--serif);font-style:italic;font-size:16px;line-height:1;color:var(--gold);margin-bottom:4px}
+.tlx-t{display:block;font-family:var(--serif);font-style:italic;font-size:clamp(20px,1.8vw,23px);line-height:1.2}
+.tlx-aq{display:block;font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.tlx-x{margin:10px 0 0 60px;font-size:15.5px;line-height:1.7;color:rgba(255,255,243,.84);max-width:60ch}
+.tlx-f.here .tlx-i,.tlx-f.done .tlx-i{border-color:var(--gold)}
+.tlx-f.here .tlx-i{background:var(--gold)}
+.tlx-f.here .ic{stroke:var(--obs)}
+/* la fase abierta se señala con un subrayado dorado bajo su título; el relleno es solo de «Estamos aquí» y la marca dorada de la 1, de «hecha» */
+.tlx-f.on .tlx-t{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:1px;text-underline-offset:7px}
+.tlx-panel{display:none}
+.tlx-b:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
+@media (hover:hover){.js .tlx-b:hover .tlx-i{border-color:var(--gold)}}
+@media (min-width:761px){
+  .js .tlx-l{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));column-gap:14px;position:relative}
+  /* cada fase centrada sobre su eje: número, círculo y título; la línea pasa por el centro de los círculos (del primero al último) y el tramo ya recorrido va en dorado */
+  .js .tlx{padding-top:40px}
+  .js .tlx-l::before{content:"";position:absolute;left:calc((100% - 84px)/14);right:calc((100% - 84px)/14);top:48px;height:1px;background:rgba(255,255,243,.22)}
+  .js .tlx-f{border-top:0;padding:0}
+  .js .tlx-f.done::after{content:"";position:absolute;left:50%;width:calc(100% + 14px);top:48px;height:1px;background:var(--gold);pointer-events:none}
+  .js .tlx-b{flex-direction:column;align-items:center;gap:10px;text-align:center}
+  .js .tlx-tx{display:contents}
+  .js .tlx-n{order:0;margin:0;height:16px}
+  .js .tlx-i{order:1;position:relative;z-index:1}
+  .js .tlx-t{order:2;font-size:clamp(17px,1.5vw,21px)}
+  .js .tlx-aq{position:absolute;top:-26px;left:50%;transform:translateX(-50%);margin:0;white-space:nowrap}
+  .js .tlx-x{display:none}
+  .js .tlx-panel{display:block;margin-top:34px;padding-left:clamp(20px,2.4vw,32px);border-left:1px solid var(--gold);max-width:760px}
+  .js .tlx-pt{font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.4vw,30px);line-height:1.2;color:var(--canvas);margin-bottom:10px}
+  .js .tlx-panel p+p{font-size:16px;line-height:1.75;color:rgba(255,255,243,.84)}
+}
+@media (max-width:760px){
+  .js .tlx-x{display:none}
+  .js .tlx-f.on .tlx-x{display:block}
+}
+.panel{border:1px solid rgba(255,255,243,.22);padding:clamp(28px,4vw,52px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px)}
+.panel p{font-size:clamp(15.5px,1.15vw,17px);line-height:1.8;color:rgba(255,255,243,.84)}
+
+/* ---------- 9 precio ---------- */
+.pills{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:clamp(28px,3vw,40px)}
+.pill{background:none;border:1px solid var(--obs);padding:12px 24px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s}
+.pill:hover{background:rgba(28,25,23,.06)}
+.pill[aria-pressed="true"]{background:var(--obs);color:var(--canvas)}
+.sel{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:clamp(40px,5vw,80px);align-items:start}
+.grp{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);padding:30px 0 12px}
+.grp:first-child{padding-top:0}
+.pz{list-style:none}
+.pz label{position:relative;display:grid;grid-template-columns:22px 24px minmax(0,1fr) auto;gap:16px;align-items:start;padding:20px 0;border-top:1px solid var(--line);cursor:pointer}
+.pz .ic{margin-top:2px}
+.pz.fijo label{cursor:default}
+.pz input{position:absolute;opacity:0;width:22px;height:22px;left:0;top:20px;margin:0}
+.box{width:22px;height:22px;border:1px solid var(--obs);margin-top:3px;position:relative;transition:background .2s}
+.pz input:checked+.box{background:var(--obs)}
+.pz input:checked+.box::after{content:"";position:absolute;left:7px;top:2px;width:6px;height:12px;border:solid var(--canvas);border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
+.pz input:focus-visible+.box{outline:2px solid var(--gold);outline-offset:3px}
+.pz input:disabled+.box{opacity:.55}
+.pz .nom{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2vw,26px);line-height:1.2}
+.pz .nom small{font-family:var(--sans);font-style:normal;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-left:12px;white-space:nowrap}
+.pz .des{display:block;font-size:14.5px;line-height:1.6;color:var(--stone);margin-top:6px;max-width:52ch}
+.pz .pr{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2vw,26px);white-space:nowrap;padding-top:1px}
+.pz:not(.fijo) input:not(:checked)~.nom,.pz:not(.fijo) input:not(:checked)~.pr{opacity:.45}
+.aviso{min-height:0;margin-top:20px;padding-left:16px;border-left:1px solid var(--gold);font-size:14.5px;color:var(--obs);display:none}
+.aviso.on{display:block}
+.nota-sel{margin-top:22px;font-size:14.5px;color:var(--stone)}
+.sum{position:sticky;top:calc(var(--navh) + 24px);background:var(--obs);color:var(--canvas);padding:clamp(28px,3vw,40px)}
+.sum .eyebrow{margin-bottom:10px}
+.sum .big{font-family:var(--serif);font-style:italic;font-size:clamp(48px,4.4vw,64px);line-height:1;margin-bottom:6px}
+.sum .sub{font-size:13px;color:rgba(255,255,243,.62)}
+.sum hr{border:0;border-top:1px solid rgba(255,255,243,.18);margin:26px 0}
+.sum .mid{font-family:var(--serif);font-style:italic;font-size:32px;line-height:1.1}
+.sum .mid small{font-family:var(--sans);font-style:normal;font-size:13px;color:rgba(255,255,243,.62);margin-left:8px}
+.sum .resto{margin-top:22px;font-size:14px;color:rgba(255,255,243,.78)}
+.sum .resto b{color:var(--canvas)}
+.acomp{margin-top:clamp(64px,8vw,104px)}
+.cmp{list-style:none;max-width:860px}
+.cmp li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 24px;padding:20px 0;border-top:1px solid var(--line);transition:opacity .3s}
+.cmp li.off{opacity:.38}
+.cmp .nom{font-family:var(--serif);font-style:italic;font-size:clamp(20px,1.8vw,24px);line-height:1.2}
+.cmp .des{grid-column:1;font-size:14.5px;color:var(--stone);line-height:1.6}
+.cmp .pr{grid-row:1/3;grid-column:2;font-family:var(--serif);font-style:italic;font-size:clamp(22px,2vw,26px);text-align:right;white-space:nowrap}
+.cmp li.tot{border-top:1px solid var(--obs);padding-top:24px}
+.cmp li.tot .pr{font-size:clamp(26px,2.4vw,32px)}
+.llano{margin-top:34px;display:grid;gap:12px;max-width:760px}
+.llano p{font-size:15px;color:var(--soft);padding-left:20px;border-left:1px solid var(--gold)}
+.acomp .nota{margin-top:22px;font-size:14.5px;color:var(--stone)}
+
+/* ---------- 10 calculadora ---------- */
+#calculadora{padding:clamp(56px,6vw,84px) 0}
+#calculadora .sec-head{margin-bottom:clamp(24px,3vw,36px)}
+#calculadora .sec-head .eyebrow{margin-bottom:14px}
+#calculadora .sec-head .lead{margin-top:14px}
+.calc{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.grupo{display:grid;gap:12px}
+.grupo+.grupo{margin-top:22px}
+.grupo-t{margin-bottom:-2px}
+.campo label{display:block;font-size:13.5px;line-height:1.35;color:var(--stone);margin-bottom:2px}
+.campo input{width:100%;background:none;border:0;border-bottom:1px solid var(--obs);border-radius:0;padding:2px 0 6px;font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.1;color:var(--obs)}
+.campo input:focus{outline:none;border-bottom-color:var(--gold)}
+.campo input:focus-visible{outline:none;border-bottom:2px solid var(--gold)}
+.err{display:block;min-height:0;font-style:italic;font-family:var(--serif);font-size:16px;color:var(--obs);margin-top:4px}
+.err:not(:empty){padding-left:12px;border-left:1px solid var(--gold)}
+.res{background:var(--canvas);border:1px solid var(--line);border-top:2px solid var(--gold);padding:clamp(20px,2.2vw,28px) clamp(22px,2.6vw,34px)}
+.res .al{font-family:var(--serif);font-style:italic;font-size:clamp(34px,3.4vw,46px);line-height:1;color:var(--obs)}
+.res .big{font-family:var(--serif);font-style:italic;font-size:clamp(46px,5vw,72px);line-height:1;min-height:1em;margin-top:6px}
+.res .et{margin-top:8px;font-size:12.5px;line-height:1.4;color:var(--stone)}
+.res .cuenta{margin-top:14px;font-size:13.5px;line-height:1.55;color:var(--stone);min-height:3.4em}
+.res .aviso2{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.5;color:var(--stone)}
+
+/* ---------- 11 plazos ---------- */
+.eje{display:grid;grid-template-columns:minmax(0,38%) minmax(0,1fr);gap:0 clamp(24px,3vw,48px);align-items:center}
+.eje-t{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);padding-bottom:12px}
+.eje-h{display:grid;grid-template-columns:minmax(0,1fr) 8em;gap:16px;padding-bottom:12px}
+.ticks{display:grid;grid-template-columns:repeat(7,1fr);font-size:11px;font-weight:500;letter-spacing:.12em;color:var(--stone)}
+.ticks span{border-right:1px solid var(--line);padding-right:8px;text-align:right}
+.pl{display:contents;list-style:none}
+.pl-n{padding:22px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.5;display:grid;grid-template-columns:22px minmax(0,1fr);column-gap:14px;align-content:start}
+.pl-n .ic{width:22px;height:22px;grid-row:1/3;margin-top:2px}
+.pl-n b,.pl-n span{grid-column:2}
+.pl-n b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(19px,1.7vw,22px);display:block;line-height:1.25}
+.pl-n span{font-size:13.5px;color:var(--stone)}
+.pl-b{padding:22px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) 8em;align-items:center;gap:16px}
+.track{height:12px;background:rgba(28,25,23,.06);position:relative}
+.track i{position:absolute;left:0;top:0;height:100%;transform-origin:left}
+.js .track i{transform:scaleX(0);transition:transform var(--dur) var(--ease);transition-delay:calc(var(--k,0)*70ms)}
+.js .eje.in .track i{transform:scaleX(1)}
+.pls{display:contents;list-style:none}
+.track .a{background:var(--obs);z-index:2}
+.track .b{background:var(--gold);z-index:1}
+.pl-b em{font-family:var(--serif);font-style:italic;font-size:21px;text-align:right;white-space:nowrap}
+.pl-leg{margin-top:26px;font-size:13.5px;color:var(--stone);display:flex;gap:24px;flex-wrap:wrap}
+.pl-leg i{display:inline-block;width:18px;height:8px;margin-right:9px;vertical-align:middle}
+.pl-nota{margin-top:30px;max-width:640px;color:var(--soft)}
+
+/* ---------- 12 ampliaciones / fuera ---------- */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,4vw,56px) clamp(28px,3.4vw,56px)}
+
+/* ---------- 13 condiciones ---------- */
+.conds{list-style:none;max-width:820px;counter-reset:c}
+.conds li{counter-increment:c;display:grid;grid-template-columns:44px 1fr;padding:26px 0;border-top:1px solid var(--line);font-size:clamp(16px,1.25vw,18px);line-height:1.7}
+.conds li:last-child{border-bottom:1px solid var(--line)}
+.conds li::before{content:counter(c);font-family:var(--serif);font-style:italic;color:var(--gold);font-size:22px;line-height:1.4}
+
+/* ---------- 14 próximos pasos + pie ---------- */
+.fin{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,7vw,112px);align-items:start}
+.fin .t2{margin-bottom:30px}
+.riel{font-size:clamp(16px,1.25vw,18px);line-height:1.8;color:rgba(255,255,243,.84);max-width:46ch}
+.firma{margin-top:36px;font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.2vw,30px);line-height:1.3}
+.firma span{display:block;font-family:var(--sans);font-style:normal;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:8px}
+.validez{margin-top:26px;font-size:13.5px;line-height:1.7;color:rgba(255,255,243,.62);max-width:46ch}
+.tres{list-style:none}
+.tres li{display:grid;grid-template-columns:48px 1fr;padding:26px 0;border-top:1px solid rgba(255,255,243,.18)}
+.tres li:last-child{border-bottom:1px solid rgba(255,255,243,.18)}
+.tres .n{font-size:26px}
+.tres b{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(22px,2vw,26px);line-height:1.25;margin-bottom:6px}
+.tres p{font-size:15px;color:rgba(255,255,243,.7)}
+.pie{background:var(--obs);color:var(--canvas);padding:0 0 40px}
+.pie-i{border-top:1px solid rgba(255,255,243,.16);padding-top:32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.pie span{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,243,.6)}
+
+/* ---------- movimiento con GSAP (solo si carga la librería y no hay movimiento reducido) ---------- */
+.cut{position:absolute;top:0;left:max(var(--gut),calc((100% - 1120px)/2));right:max(var(--gut),calc((100% - 1120px)/2));height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;pointer-events:none;z-index:2}
+.cita blockquote .w1{display:inline-block}
+.sit-ln{position:absolute;left:-18px;top:36px;bottom:36px;width:1px;background:var(--gold);transform:scaleY(0);transform-origin:top;pointer-events:none}
+.sit-fx td.con::before{display:none}
+html.gs .track i{transform:none;transition:none}
+/* línea de tiempo al hacer scroll («Cómo trabajamos» y «La decisión»): la crea el bloque de movimiento; sin él no existe */
+.tl-host{position:relative;--tlx:-24px}
+.tl-host.h{--tlx:0px}
+.tl-i{position:relative}
+.tl-rail{position:absolute;left:var(--tlx);top:0;bottom:0;width:1px;background:rgba(255,255,243,.16);pointer-events:none}
+.tl-rail i{position:absolute;left:0;top:0;width:100%;height:100%;background:var(--gold);transform:scaleY(0);transform-origin:top}
+.tl-rail.h{left:0;right:0;bottom:auto;width:auto;height:1px;background:none}
+.tl-rail.h i{transform:scaleX(0);transform-origin:left}
+.tl-dot{position:absolute;left:calc(var(--tlx) - 4px);top:-4px;width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,243,.34);background:var(--obs);pointer-events:none}
+.tl-dot i{position:absolute;left:-1px;top:-1px;right:-1px;bottom:-1px;border-radius:50%;border:1px solid var(--gold);opacity:0}
+.tl-dot b{position:absolute;left:1px;top:1px;right:1px;bottom:1px;border-radius:50%;background:var(--gold);transform:scale(0)}
+/* subrayado que se traza bajo una frase */
+.mk-host{position:relative}
+.mk-ln{position:absolute;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;pointer-events:none}
+/* entrada del diagrama: hasta que se lanza la coreografía, centro, nodos y rótulos esperan y las líneas están sin trazar */
+.fx-intro .fx-wire{stroke-dasharray:1;stroke-dashoffset:1}
+.fx-intro .fx-hub,.fx-intro .fx-node,.fx-intro .fx-col{opacity:0}
+/* invitación a bajar en la portada: línea dorada de 1 px con un trazo corto que desciende; se quita tras el primer scroll */
+.cue{display:none}
+.js .cue{display:block;position:absolute;left:50%;bottom:0;width:1px;height:clamp(52px,8vh,72px);margin-left:-.5px;background:rgba(196,151,74,.28);overflow:hidden;pointer-events:none;transition:opacity .6s var(--ease)}
+.js .cue.off{opacity:0}
+.cue i{position:absolute;left:0;top:0;width:100%;height:42%;background:var(--gold)}
+@media (prefers-reduced-motion:no-preference){
+  .js .cue{animation:cue-in .9s var(--ease) 3.4s backwards}
+  .cue i{transform:translateY(-100%);animation:cue 2.8s cubic-bezier(.65,0,.35,1) 3.6s infinite backwards}
+}
+@keyframes cue-in{from{opacity:0}}
+@keyframes cue{0%{transform:translateY(-100%)}70%,100%{transform:translateY(240%)}}
+
+/* resalte leve al pasar el puntero: solo con puntero, solo borde, raya o fondo de la paleta, sin sombras ni escalado */
+.card,.pz label{transition:border-color var(--ui) ease}
+.sit tbody tr,.cruce tbody tr{transition:background-color var(--ui) ease}
+.pz label{position:relative;isolation:isolate}
+.pz label::before{content:"";position:absolute;top:0;bottom:0;left:-16px;right:-16px;z-index:-1;background:transparent;pointer-events:none;transition:background-color var(--ui) ease}
+/* el resalte de una fila es un solo rectángulo (el fondo de la fila) sin bordes internos y con 16 px de aire a cada lado del texto */
+@media (min-width:761px){
+  .sit th:first-child,.cruce th:first-child{padding-left:16px}
+  .sit td.con{padding-right:16px}
+  .sit td.con::before,.sit-ln{left:-18px}
+}
+@media (hover:hover){
+  .card:hover{border-top-color:var(--gold)}
+  .sit tbody tr:hover,.cruce tbody tr:hover,.pz label:hover::before{background:rgba(196,151,74,.07)}
+  .pz label:hover{border-top-color:var(--gold)}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1240px){
+  .hero-motif{position:relative;top:auto;right:auto;transform:none;width:min(380px,calc(100% - 2*var(--gut)));margin:0 auto}
+}
+@media (max-width:1000px){
+  .tl-host{--tlx:-14px}
+  .g3{grid-template-columns:1fr 1fr}
+  .g3--c>.card{width:calc((100% - var(--gx))/2)}
+  .sel{grid-template-columns:1fr}
+  .sum{position:sticky;top:var(--navh);z-index:20;order:-1;display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;padding:16px 20px;align-items:end}
+  .sum .eyebrow{grid-column:1/-1;margin-bottom:0}
+  .sum .big{font-size:36px;margin:0}
+  .sum .sub,.sum hr,.sum .resto{display:none}
+  .sum .mid{font-size:26px}
+  .calc{grid-template-columns:1fr}
+  .fin{grid-template-columns:1fr}
+  .base{grid-template-columns:1fr}
+  .fx-chips{grid-template-columns:repeat(5,minmax(168px,1fr));overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity}
+  .fx-chip{scroll-snap-align:start}
+}
+@media (max-width:760px){
+  :root{--navh:46px}
+  .tl-host{--tlx:-10px}
+  body{font-size:15.5px}
+  .nav-marca svg{height:16px}
+  .nav-l a{padding:15px 0}
+  .nav-l a::after{bottom:10px}
+  .dos,.panel,.g2{grid-template-columns:1fr}
+  .g3{grid-template-columns:1fr}
+  .g3--c>.card{width:100%}
+  .cita{padding-left:18px}
+  /* tablas a tarjetas */
+  .sit thead,.cruce thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .sit,.sit tbody,.sit tr,.sit th,.sit td,.cruce,.cruce tbody,.cruce tr,.cruce th,.cruce td{display:block;width:100%}
+  .sit tr,.cruce tr{border-top:1px solid var(--line);padding:26px 0}
+  .sit th,.sit td,.cruce th,.cruce td{border:0;padding:0;width:100%}
+  .sit tbody th{width:100%;margin-bottom:14px}
+  .sit td{margin-top:12px;font-size:15px}
+  .sit td.con::before{display:none}
+  .sit td.con{width:100%;padding-left:16px;border-left:1px solid var(--gold)}
+  .lbl{display:block;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+  .cruce tbody th{width:100%;margin-bottom:10px}
+  .cruce td{margin-top:8px}
+  .cruce td .lbl{font-family:var(--serif);font-style:italic;text-transform:none;letter-spacing:0;font-size:15px;color:var(--stone);font-weight:400;margin:0}
+  .cruce td.na{opacity:.6}
+  .cruce td.si,.cruce td.rec-t{padding-left:0}
+  .cruce .pt{margin:0 9px 1px 0}
+  .cruce td .ra{font-size:16px}
+  .cruce td .lbl{display:flex;align-items:center;gap:8px}
+  .ic--m{display:block;width:18px;height:18px}
+  .fx-svg-d{display:none}.fx-svg-m{display:block}
+  .fx-chips{grid-template-columns:repeat(5,150px)}
+  .fx-tools{flex-direction:column;align-items:flex-start}
+  .pz label{grid-template-columns:22px 24px minmax(0,1fr);gap:14px}
+  .pz .pr{grid-column:3;padding-top:0}
+  .pz .nom small{display:block;margin:4px 0 0}
+  .cmp li{grid-template-columns:1fr}
+  .cmp .pr{grid-row:auto;grid-column:1;text-align:left}
+  .sum .big{font-size:30px}.sum .mid{font-size:22px}
+  .eje{grid-template-columns:1fr}
+  .eje-h,.eje-t{display:none}
+  .pl-n{padding-bottom:6px;border-bottom:0}
+  .pl-b{border-top:0;padding-top:4px}
+  .conds li{grid-template-columns:34px 1fr}
+  .tres li{grid-template-columns:40px 1fr}
+  .campo input{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:1;transform:none;transition:none}
+  .hero-in{animation:none}
+  .js .track i{transform:none;transition:none}
+  .cut{display:none}
+  .js .nav-l{transition:none}
+  *{scroll-behavior:auto!important}
+}
+@media print{
+  .nav,.fx-chips,.fx-tools .fx-play,.cut,.cue,.tl-rail,.tl-dot,.mk-ln{display:none!important}
+  .tl-i>*,.wd{opacity:1!important;transform:none!important}
+  .fx-intro .fx-hub,.fx-intro .fx-node,.fx-intro .fx-col{opacity:1!important}
+  .fx-intro .fx-wire{stroke-dashoffset:0!important}
+  .js .rv{opacity:1!important;transform:none!important}
+  .s,.hero{break-inside:avoid-page}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav" aria-label="Secciones del plan">
+  <a class="nav-marca" href="#inicio" aria-label="Agent Luce, volver al inicio"><svg viewBox="0 0 87.752 26.216" width="67" height="20" aria-hidden="true" focusable="false"><use href="#marca"/></svg></a>
+  <ul class="nav-l">
+    <li><a href="#hoy">Hoy</a></li>
+    <li><a href="#sistema">El sistema</a></li>
+    <li><a href="#como-funciona">En movimiento</a></li>
+    <li><a href="#como">Cómo trabajamos</a></li>
+    <li><a href="#precio">Precio</a></li>
+    <li><a href="#plazos">Plazos</a></li>
+    <li><a href="#condiciones">Condiciones</a></li>
+    <li><a href="#decision">La decisión</a></li>
+  </ul>
+  <div id="progress" aria-hidden="true"></div>
+</nav>
+
+<!-- Marca de Agent Luce (assets/marca/agent-luce-oscuro.svg), insertada tal cual -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="marca" viewBox="0 0 87.752 26.216"><path fill="#FFFFF3" fill-rule="nonzero" d="M0.088 14.034Q0 14.034 0 13.902Q0 13.77 0.088 13.77Q0.66 13.77 1.397 13.264Q2.134 12.758 2.948 11.328L9.24 0.064Q9.284 -0.024 9.449 0.009Q9.614 0.042 9.636 0.108L11.572 12.186Q11.66 12.78 11.803 13.132Q11.946 13.484 12.265 13.627Q12.584 13.77 13.222 13.77Q13.31 13.77 13.31 13.902Q13.31 14.034 13.222 14.034Q12.716 14.034 12.177 13.99Q11.638 13.946 11 13.946Q10.362 13.946 9.878 13.99Q9.394 14.034 8.866 14.034Q8.8 14.034 8.8 13.902Q8.8 13.77 8.866 13.77Q9.9 13.77 10.153 13.44Q10.406 13.11 10.274 12.186L8.602 1.78L9.152 1.142L3.674 11.13Q3.058 12.23 3.003 12.802Q2.948 13.374 3.322 13.572Q3.696 13.77 4.422 13.77Q4.51 13.77 4.51 13.902Q4.51 14.034 4.4 14.034Q3.96 14.034 3.333 13.99Q2.706 13.946 2.112 13.946Q1.474 13.946 1.067 13.99Q0.66 14.034 0.088 14.034ZM5.082 7.984L5.412 7.544L10.142 7.544L10.186 7.984L5.082 7.984ZM16.39 20.216Q15.202 20.216 14.421 19.842Q13.64 19.468 13.299 18.863Q12.958 18.258 13.112 17.576Q13.332 16.608 14.333 15.871Q15.334 15.134 16.632 14.43L16.786 14.606Q16.28 14.914 15.741 15.255Q15.202 15.596 14.817 16.025Q14.432 16.454 14.344 17.07Q14.234 17.774 14.586 18.357Q14.938 18.94 15.675 19.27Q16.412 19.6 17.446 19.6Q18.634 19.6 19.272 19.105Q19.91 18.61 19.954 17.884Q19.976 17.29 19.635 16.85Q19.294 16.41 18.744 16.069Q18.194 15.728 17.589 15.431Q16.984 15.134 16.467 14.815Q15.95 14.496 15.664 14.111Q15.378 13.726 15.466 13.198Q15.576 12.714 15.983 12.274Q16.39 11.834 16.984 11.328L17.204 11.504Q16.962 11.636 16.753 11.933Q16.544 12.23 16.5 12.538Q16.434 13 16.753 13.352Q17.072 13.704 17.622 14.001Q18.172 14.298 18.777 14.595Q19.382 14.892 19.921 15.255Q20.46 15.618 20.768 16.102Q21.076 16.586 21.01 17.246Q20.944 18.038 20.284 18.709Q19.624 19.38 18.612 19.798Q17.6 20.216 16.39 20.216ZM17.358 11.878Q16.5 11.878 15.95 11.427Q15.4 10.976 15.213 10.239Q15.026 9.502 15.224 8.622Q15.4 7.698 15.939 6.972Q16.478 6.246 17.248 5.828Q18.018 5.41 18.898 5.41Q19.778 5.41 20.306 5.85Q20.834 6.29 21.01 7.016Q21.186 7.742 21.01 8.622Q20.812 9.612 20.24 10.338Q19.668 11.064 18.909 11.471Q18.15 11.878 17.358 11.878ZM17.908 11.46Q18.546 11.46 19.096 10.866Q19.646 10.272 19.822 9.216Q19.954 8.512 19.855 7.72Q19.756 6.928 19.393 6.367Q19.03 5.806 18.348 5.806Q17.688 5.806 17.127 6.444Q16.566 7.082 16.412 8.072Q16.28 8.842 16.401 9.634Q16.522 10.426 16.907 10.943Q17.292 11.46 17.908 11.46ZM19.712 6.422L19.69 6.268Q20.35 5.872 21.109 5.619Q21.868 5.366 22.484 5.366Q22.594 5.366 22.605 5.553Q22.616 5.74 22.561 5.96Q22.506 6.18 22.44 6.334Q22.374 6.488 22.308 6.444Q21.802 6.18 21.076 6.18Q20.35 6.18 19.712 6.422ZM25.784 14.298Q24.618 14.298 23.947 13.682Q23.276 13.066 23.067 12.076Q22.858 11.086 23.078 9.964Q23.21 9.15 23.661 8.303Q24.112 7.456 24.794 6.774Q25.476 6.092 26.312 5.674Q27.148 5.256 28.094 5.256Q28.908 5.256 29.293 5.575Q29.678 5.894 29.59 6.444Q29.48 6.972 28.974 7.456Q28.468 7.94 27.676 8.325Q26.884 8.71 25.905 8.996Q24.926 9.282 23.87 9.392L23.914 9.106Q25.608 8.864 26.763 8.325Q27.918 7.786 28.116 6.906Q28.27 6.312 27.918 6.081Q27.566 5.85 27.126 5.85Q26.378 5.85 25.828 6.312Q25.278 6.774 24.926 7.544Q24.574 8.314 24.42 9.238Q24.178 10.47 24.365 11.438Q24.552 12.406 25.124 12.978Q25.696 13.55 26.62 13.55Q27.148 13.55 27.72 13.396Q28.292 13.242 28.842 12.824Q28.908 12.78 28.985 12.868Q29.062 12.956 28.996 13.022Q28.16 13.704 27.368 14.001Q26.576 14.298 25.784 14.298ZM37.334 14.232Q36.762 14.232 36.619 13.748Q36.476 13.264 36.696 12.076L37.334 8.578Q37.84 6.114 36.52 6.114Q35.816 6.114 35.046 7.016Q34.276 7.918 33.583 9.656Q32.89 11.394 32.428 13.88L32.164 13.858Q32.626 11.284 33.396 9.348Q34.166 7.412 35.167 6.334Q36.168 5.256 37.246 5.256Q38.192 5.256 38.511 5.938Q38.83 6.62 38.522 8.16L37.796 12.076Q37.686 12.736 37.796 13.044Q37.906 13.352 38.17 13.352Q38.412 13.352 38.786 13.077Q39.16 12.802 39.622 12.34Q39.688 12.252 39.787 12.34Q39.886 12.428 39.798 12.516Q39.094 13.33 38.5 13.781Q37.906 14.232 37.334 14.232ZM31.724 14.21Q31.416 14.21 31.317 14.177Q31.218 14.144 31.218 14.078Q31.218 13.99 31.339 13.484Q31.46 12.978 31.548 12.406L32.45 7.5Q32.67 6.202 32.076 6.202Q31.834 6.202 31.438 6.466Q31.042 6.73 30.558 7.214Q30.492 7.302 30.393 7.203Q30.294 7.104 30.382 7.038Q31.13 6.18 31.757 5.762Q32.384 5.344 32.956 5.344Q33.484 5.344 33.627 5.817Q33.77 6.29 33.572 7.456L32.428 13.88Q32.384 14.21 31.724 14.21ZM42.812 14.298Q42.394 14.298 42.009 14.133Q41.624 13.968 41.437 13.561Q41.25 13.154 41.382 12.428L42.328 7.302Q42.482 6.488 42.361 6.29Q42.24 6.092 41.58 6.092Q41.492 6.092 41.514 5.96Q41.536 5.828 41.602 5.828Q42.372 5.828 42.922 5.333Q43.472 4.838 43.648 4.134Q43.67 4.068 43.857 4.068Q44.044 4.068 44.022 4.134L42.658 11.746Q42.482 12.648 42.735 13.066Q42.988 13.484 43.67 13.484Q44.308 13.484 44.814 13.187Q45.32 12.89 45.782 12.494Q45.826 12.45 45.925 12.538Q46.024 12.626 45.958 12.67Q44.968 13.55 44.22 13.924Q43.472 14.298 42.812 14.298ZM45.98 6.51Q45.936 6.51 45.496 6.455Q45.056 6.4 44.473 6.345Q43.89 6.29 43.34 6.29L43.384 5.762Q43.956 5.762 44.616 5.718Q45.276 5.674 45.826 5.641Q46.376 5.608 46.53 5.608Q46.64 5.608 46.673 5.663Q46.706 5.718 46.684 5.806Q46.662 5.982 46.431 6.246Q46.2 6.51 45.98 6.51ZM52.052 14.034Q52.008 14.034 52.008 13.902Q52.008 13.77 52.052 13.77Q52.734 13.77 53.097 13.66Q53.46 13.55 53.636 13.22Q53.812 12.89 53.922 12.252L55.726 2.066Q55.902 1.12 55.649 0.834Q55.396 0.548 54.384 0.548Q54.34 0.548 54.34 0.416Q54.34 0.284 54.384 0.284Q54.846 0.284 55.396 0.317Q55.946 0.35 56.584 0.35Q57.222 0.35 57.827 0.317Q58.432 0.284 58.85 0.284Q58.894 0.284 58.894 0.416Q58.894 0.548 58.85 0.548Q58.168 0.548 57.805 0.669Q57.442 0.79 57.277 1.12Q57.112 1.45 56.98 2.088L55.198 12.164Q55.044 13.088 55.275 13.352Q55.506 13.616 56.452 13.616L58.674 13.616Q59.95 13.616 60.742 12.824Q61.534 12.032 62.018 10.69Q62.018 10.624 62.161 10.646Q62.304 10.668 62.282 10.734Q62.106 11.328 61.897 12.164Q61.688 13 61.578 13.704Q61.512 14.034 61.226 14.034L52.052 14.034ZM65.604 14.32Q64.658 14.32 64.328 13.627Q63.998 12.934 64.306 11.416L65.098 7.5Q65.23 6.818 65.12 6.521Q65.01 6.224 64.746 6.224Q64.504 6.224 64.13 6.499Q63.756 6.774 63.294 7.236Q63.206 7.324 63.118 7.236Q63.03 7.148 63.118 7.06Q63.844 6.224 64.438 5.784Q65.032 5.344 65.604 5.344Q66.132 5.344 66.297 5.828Q66.462 6.312 66.22 7.5L65.516 10.998Q65.23 12.274 65.45 12.868Q65.67 13.462 66.308 13.462Q67.034 13.462 67.804 12.56Q68.574 11.658 69.267 9.92Q69.96 8.182 70.4 5.696L70.686 5.718Q70.246 8.292 69.465 10.228Q68.684 12.164 67.694 13.242Q66.704 14.32 65.604 14.32ZM69.894 14.232Q69.344 14.232 69.212 13.759Q69.08 13.286 69.278 12.12L70.4 5.696Q70.466 5.366 71.104 5.366Q71.434 5.366 71.533 5.41Q71.632 5.454 71.632 5.498Q71.632 5.586 71.522 6.092Q71.412 6.598 71.302 7.17L70.4 12.076Q70.18 13.374 70.752 13.374Q71.016 13.374 71.412 13.11Q71.808 12.846 72.292 12.362Q72.358 12.274 72.446 12.373Q72.534 12.472 72.468 12.538Q71.698 13.396 71.093 13.814Q70.488 14.232 69.894 14.232ZM76.384 14.32Q75.438 14.32 74.833 13.891Q74.228 13.462 73.92 12.769Q73.612 12.076 73.568 11.24Q73.524 10.404 73.7 9.59Q73.986 8.204 74.745 7.247Q75.504 6.29 76.483 5.773Q77.462 5.256 78.408 5.256Q78.936 5.256 79.387 5.421Q79.838 5.586 80.091 5.872Q80.344 6.158 80.3 6.554Q80.278 6.84 80.102 7.049Q79.926 7.258 79.574 7.258Q79.266 7.258 79.079 7.06Q78.892 6.862 78.782 6.554Q78.716 6.29 78.452 6.015Q78.188 5.74 77.638 5.74Q76.912 5.74 76.384 6.169Q75.856 6.598 75.537 7.313Q75.218 8.028 75.042 8.908Q74.822 10.118 74.965 11.185Q75.108 12.252 75.68 12.901Q76.252 13.55 77.308 13.55Q78.034 13.55 78.606 13.242Q79.178 12.934 79.64 12.56Q79.706 12.516 79.794 12.604Q79.882 12.692 79.816 12.758Q78.914 13.572 78.056 13.946Q77.198 14.32 76.384 14.32ZM83.93 14.298Q82.764 14.298 82.093 13.682Q81.422 13.066 81.213 12.076Q81.004 11.086 81.224 9.964Q81.356 9.15 81.807 8.303Q82.258 7.456 82.94 6.774Q83.622 6.092 84.458 5.674Q85.294 5.256 86.24 5.256Q87.054 5.256 87.439 5.575Q87.824 5.894 87.736 6.444Q87.626 6.972 87.12 7.456Q86.614 7.94 85.822 8.325Q85.03 8.71 84.051 8.996Q83.072 9.282 82.016 9.392L82.06 9.106Q83.754 8.864 84.909 8.325Q86.064 7.786 86.262 6.906Q86.416 6.312 86.064 6.081Q85.712 5.85 85.272 5.85Q84.524 5.85 83.974 6.312Q83.424 6.774 83.072 7.544Q82.72 8.314 82.566 9.238Q82.324 10.47 82.511 11.438Q82.698 12.406 83.27 12.978Q83.842 13.55 84.766 13.55Q85.294 13.55 85.866 13.396Q86.438 13.242 86.988 12.824Q87.054 12.78 87.131 12.868Q87.208 12.956 87.142 13.022Q86.306 13.704 85.514 14.001Q84.722 14.298 83.93 14.298Z"/>
+<rect x="0" y="24.216" width="87.752" height="2" fill="#C4974A"/></symbol></svg>
+
+<!-- Iconos de la casa: los mismos del diagrama (mismo trazo); uno por pieza, mismo en todos los sitios. La rueda de recambios es el único nuevo. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-wa" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></symbol>
+<symbol id="i-voz" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+<symbol id="i-pre" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="i-cit" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M9 15l2 2 4-4"/></symbol>
+<symbol id="i-ppt" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></symbol>
+<symbol id="i-con" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-4M12 5v2M4 13h2M18 13h2"/></symbol>
+<symbol id="i-rec" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="6.3"/><circle cx="12" cy="12" r="1.6"/><path d="M12 10.4V5.7M13.5 11.5l4.5-1.5M12.9 13.3l2.8 3.8M11.1 13.3l-2.8 3.8M10.5 11.5L6 10"/></symbol>
+<symbol id="i-sin" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 18 0z"/><path d="M12 12v6a2 2 0 0 0 4 0"/></symbol>
+<symbol id="i-a1" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-a2" viewBox="0 0 24 24"><path d="M15 5a4 4 0 0 0-4.5 5.3L4 17l3 3 6.7-6.5A4 4 0 0 0 19 9l-2.5 2.5-2.5-.5-.5-2.5z"/></symbol>
+<symbol id="i-a3" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 20h16"/></symbol>
+<symbol id="i-a4" viewBox="0 0 24 24"><path d="M4 8h14M14 4l4 4-4 4"/><path d="M20 16H6M10 12l-4 4 4 4"/></symbol>
+<symbol id="i-a5" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M14 9l2 2"/></symbol>
+<symbol id="i-a6" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+<symbol id="i-x1" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M12 9v6M9 12h6"/></symbol>
+<symbol id="i-x2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+<symbol id="i-x3" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5v10H3z"/><path d="M9 19v-6h6v6"/></symbol>
+<symbol id="i-x4" viewBox="0 0 24 24"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></symbol>
+<symbol id="i-x5" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M10 21v-4h4v4"/></symbol>
+<symbol id="i-x6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17v.01"/></symbol>
+<symbol id="i-base" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></symbol>
+<symbol id="i-f1" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></symbol>
+<symbol id="i-f2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M7 12l3-3 3 2 4-4"/></symbol>
+<symbol id="i-f3" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></symbol>
+<symbol id="i-f4" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></symbol>
+<symbol id="i-f5" viewBox="0 0 24 24"><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/><rect x="8" y="3" width="8" height="8" rx="1"/></symbol>
+<symbol id="i-f6" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></symbol>
+<symbol id="i-f7" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.5-5.8"/><path d="M20 4v4h-4"/></symbol>
+</svg>
+
+<!-- 1 · PORTADA -->
+<header class="hero" id="inicio">
+  <div class="w">
+    <svg class="marca" viewBox="0 0 87.752 26.216" width="102" height="30" role="img" aria-label="Agent Luce"><use href="#marca"/></svg>
+  </div>
+  <div class="w hero-main">
+    <p class="eyebrow hero-in" style="--i:0">Plan a medida</p>
+    <h1 class="hero-in" style="--i:1">Honda Ibiza</h1>
+    <p class="hero-promesa hero-in" style="--i:2">Que vuestros clientes tengan respuesta a cualquier hora y que ninguna conversación se pierda.</p>
+  </div>
+  <div class="hero-motif" aria-hidden="true">
+    <svg viewBox="-108 -108 216 216" focusable="false">
+      <g class="star">
+        <circle class="st-c" r="66" pathLength="1"/>
+        <circle class="st-c" r="30" pathLength="1"/>
+        <g class="st-bg"><path d="M0,0 L0,-100 L-6.12,-14.78 Z"/><path d="M0,0 L0,-100 L6.12,-14.78 Z"/><path d="M0,0 L100,-0 L14.78,-6.12 Z"/><path d="M0,0 L100,-0 L14.78,6.12 Z"/><path d="M0,0 L0,100 L6.12,14.78 Z"/><path d="M0,0 L0,100 L-6.12,14.78 Z"/><path d="M0,0 L-100,0 L-14.78,6.12 Z"/><path d="M0,0 L-100,0 L-14.78,-6.12 Z"/><path d="M0,0 L29.7,-29.7 L6.12,-14.78 Z"/><path d="M0,0 L29.7,-29.7 L14.78,-6.12 Z"/><path d="M0,0 L29.7,29.7 L14.78,6.12 Z"/><path d="M0,0 L29.7,29.7 L6.12,14.78 Z"/><path d="M0,0 L-29.7,29.7 L-6.12,14.78 Z"/><path d="M0,0 L-29.7,29.7 L-14.78,6.12 Z"/><path d="M0,0 L-29.7,-29.7 L-14.78,-6.12 Z"/><path d="M0,0 L-29.7,-29.7 L-6.12,-14.78 Z"/></g>
+        <g class="st-fills"><path d="M0,0 L0,-100 L6.12,-14.78 Z"/><path d="M0,0 L100,-0 L14.78,6.12 Z"/><path d="M0,0 L0,100 L-6.12,14.78 Z"/><path d="M0,0 L-100,0 L-14.78,-6.12 Z"/><path d="M0,0 L29.7,-29.7 L14.78,-6.12 Z"/><path d="M0,0 L29.7,29.7 L6.12,14.78 Z"/><path d="M0,0 L-29.7,29.7 L-14.78,6.12 Z"/><path d="M0,0 L-29.7,-29.7 L-6.12,-14.78 Z"/></g>
+        <g class="st-lines"><g class="st-l"><path d="M0,0 L0,-100 L-6.12,-14.78 Z" pathLength="1"/><path d="M0,0 L0,-100 L6.12,-14.78 Z" pathLength="1"/><path d="M0,0 L100,-0 L14.78,-6.12 Z" pathLength="1"/><path d="M0,0 L100,-0 L14.78,6.12 Z" pathLength="1"/><path d="M0,0 L0,100 L6.12,14.78 Z" pathLength="1"/><path d="M0,0 L0,100 L-6.12,14.78 Z" pathLength="1"/><path d="M0,0 L-100,0 L-14.78,6.12 Z" pathLength="1"/><path d="M0,0 L-100,0 L-14.78,-6.12 Z" pathLength="1"/></g><g class="st-s"><path d="M0,0 L29.7,-29.7 L6.12,-14.78 Z" pathLength="1"/><path d="M0,0 L29.7,-29.7 L14.78,-6.12 Z" pathLength="1"/><path d="M0,0 L29.7,29.7 L14.78,6.12 Z" pathLength="1"/><path d="M0,0 L29.7,29.7 L6.12,14.78 Z" pathLength="1"/><path d="M0,0 L-29.7,29.7 L-6.12,14.78 Z" pathLength="1"/><path d="M0,0 L-29.7,29.7 L-14.78,6.12 Z" pathLength="1"/><path d="M0,0 L-29.7,-29.7 L-14.78,-6.12 Z" pathLength="1"/><path d="M0,0 L-29.7,-29.7 L-6.12,-14.78 Z" pathLength="1"/></g></g>
+      </g>
+    </svg>
+  </div>
+  <div class="w"><p class="hero-fecha hero-in" style="--i:3">Noviembre de 2026</p></div>
+  <div class="cue" aria-hidden="true"><i></i></div>
+</header>
+
+<main>
+
+<!-- 3 · LO QUE ME CONTASTE -->
+<section class="s s--canvas" id="hoy">
+  <div class="w">
+    <div class="sec-head rv">
+      <p class="eyebrow">Lo que pasa hoy</p>
+      <h2 class="t2">Lo que me contaste</h2>
+    </div>
+    <div class="intro rv">
+      <p class="saludo">Jimmy:</p>
+      <p>Aquí tienes tu plan a medida: lo que me contaste, lo que montaríamos, lo que cuesta y las condiciones.</p>
+    </div>
+    <div class="dos">
+      <p class="rv">Me contaste que os entran consultas por teléfono, por WhatsApp y por correo, y que muchas son preguntas que se repiten. Contestarlas ocupa cada día a la gente de taller, de recambios y de ventas. El teléfono suena un domingo a las ocho de la mañana o un día de fiesta, la centralita solo da el horario y quien llama se queda sin respuesta.</p>
+      <p class="rv">También me contaste que hay clientes que contestan a un presupuesto y que no siempre llegáis a esas respuestas. Que las citas del call center os llegan por correo y el hueco lo buscáis a mano. Y que los recambios que más se usan los sacas tú, copiando referencias del catálogo modelo a modelo y año a año.</p>
+    </div>
+    <figure class="cita rv">
+      <blockquote>«La telefonía, el WhatsApp y tal es lo que más me urge.»</blockquote>
+      <figcaption class="eyebrow">Jimmy</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 4 · HOY Y CON EL SISTEMA -->
+<section class="s s--sand" id="situaciones">
+  <div class="w">
+    <div class="sec-head rv">
+      <p class="eyebrow">Hoy y con el sistema</p>
+      <h2 class="t2">Seis situaciones, una por una</h2>
+    </div>
+    <table class="sit rv">
+      <thead><tr><th scope="col">Situación</th><th scope="col">Hoy</th><th scope="col">Con el sistema</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pre"/></svg><span>Las preguntas que se repiten</span></span></th>
+          <td><span class="lbl">Hoy</span>Muchas consultas son preguntas que se repiten, y contestarlas ocupa cada día a la gente de taller, de recambios y de ventas.</td>
+          <td class="con"><span class="lbl">Con el sistema</span>Se contestan solas. Lo que necesita a una persona queda recogido y llega a quien toca, sea taller, recambios, ventas, siniestros o tú, y sigue pendiente hasta que alguien lo atiende.</td></tr>
+        <tr><th scope="row"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-voz"/></svg><span>La llamada con el negocio cerrado</span></span></th>
+          <td><span class="lbl">Hoy</span>El teléfono suena un domingo o un día de fiesta, la centralita solo da el horario y quien llama se queda sin respuesta.</td>
+          <td class="con"><span class="lbl">Con el sistema</span>La llamada se atiende, en español, y lo que pide queda recogido.</td></tr>
+        <tr><th scope="row"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cit"/></svg><span>Las citas que llegan completas</span></span></th>
+          <td><span class="lbl">Hoy</span>Las citas del call center llegan por correo y el hueco se busca a mano.</td>
+          <td class="con"><span class="lbl">Con el sistema</span>Al taller le llega la petición completa: quién es, qué moto y qué trabajo quiere. Un operario coloca la cita en el calendario y le manda la confirmación.</td></tr>
+        <tr><th scope="row"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-ppt"/></svg><span>Llegar a todos los presupuestos</span></span></th>
+          <td><span class="lbl">Hoy</span>Hay clientes que contestan a un presupuesto y no siempre se llega a esas respuestas.</td>
+          <td class="con"><span class="lbl">Con el sistema</span>Cada respuesta aparece a la vista, clasificada y con los días que lleva esperando, y no desaparece hasta que alguien la cierra.</td></tr>
+        <tr><th scope="row"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-con"/></svg><span>La consulta de cada moto, sin esperas</span></span></th>
+          <td><span class="lbl">Hoy</span>Recepción ocupada en mirar revisiones en el programa.</td>
+          <td class="con"><span class="lbl">Con el sistema</span>El dueño de una moto sabe cuándo hizo la última revisión y cuándo le toca la siguiente, sin pasar por recepción.</td></tr>
+        <tr><th scope="row"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-rec"/></svg><span>Los recambios que más se usan</span></span></th>
+          <td><span class="lbl">Hoy</span>Los sacas tú, copiando referencias del catálogo modelo a modelo y año a año.</td>
+          <td class="con"><span class="lbl">Con el sistema</span>Sabes qué recambios bajar al taller sin copiar referencias a mano: la tabla por modelo y año, el consumo de más a menos, el listado para el taller y qué referencias comparten varios modelos.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 5 · EL SISTEMA NUEVO -->
+<section class="s s--canvas" id="sistema">
+  <div class="w">
+    <div class="sec-head rv">
+      <p class="eyebrow">El sistema nuevo</p>
+      <h2 class="t2">Canales y funcionalidades</h2>
+    </div>
+
+    <div class="sub-head rv">
+      <p class="eyebrow">Canales</p>
+      <h3 class="t3">Por dónde te llega el cliente</h3>
+      <p class="lead">Un canal es una vía por la que el cliente habla con vosotros. Van en el orden en que los montaríamos, empezando por lo que me dijiste que más te urge.</p>
+    </div>
+    <div class="g3">
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg><span class="n">01</span></div><h4 class="t4">Los WhatsApp que entran al taller</h4><p>Quien os escribe recibe respuesta en su idioma y a cualquier hora.</p></article>
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-voz"/></svg><span class="n">02</span></div><h4 class="t4">La llamada con el negocio cerrado</h4><p>La llamada de un domingo o de después del cierre deja de quedarse en el aviso de horario.</p></article>
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg><span class="n">03</span></div><h4 class="t4">Los emails que se responden</h4><p>Las respuestas de vuestros clientes a un presupuesto dejan de perderse en el buzón.</p></article>
+    </div>
+
+    <hr class="rule">
+
+    <div class="sub-head rv">
+      <p class="eyebrow">Funcionalidades</p>
+      <h3 class="t3">Lo que hace el sistema</h3>
+      <p class="lead">Una funcionalidad es algo que el sistema hace, y cada una trabaja en uno o más canales. Debajo tienes en cuáles.</p>
+    </div>
+    <div class="g3 g3--c">
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-pre"/></svg><span class="n">01</span></div><h4 class="t4">Las preguntas que se repiten</h4><p>Dónde estáis, cuándo toca la primera revisión, cómo se pide una prueba de moto.</p></article>
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-cit"/></svg><span class="n">02</span></div><h4 class="t4">Las citas que llegan completas</h4><p>Quien pide cita no tiene que volver a llamar.</p></article>
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-ppt"/></svg><span class="n">03</span></div><h4 class="t4">Llegar a todos los presupuestos</h4><p>Ninguna respuesta a un presupuesto se pierde de vista.</p></article>
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-rec"/></svg><span class="n">04</span></div><h4 class="t4">Los recambios que más se usan</h4><p>Sabes qué recambios bajar al taller sin copiar referencias a mano.</p></article>
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-con"/></svg><span class="n">05</span></div><h4 class="t4">La consulta de cada moto, sin esperas</h4><p>El dueño de una moto sabe cuándo hizo la última revisión y cuándo le toca la siguiente.</p></article>
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-sin"/></svg><span class="n">06</span></div><h4 class="t4">Las consultas de siniestros, juntas para Julián</h4><p>Recoge la consulta, con matrícula, cliente y aseguradora, y se la deja a Julián en un panel.</p></article>
+    </div>
+
+    <div class="cruce-w rv">
+      <p class="cruce-t">En qué canal trabaja cada funcionalidad.</p>
+      <table class="cruce">
+        <thead><tr><th scope="col"></th><th scope="col"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg><span>Los WhatsApp que entran al taller</span></span></th><th scope="col"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-voz"/></svg><span>La llamada con el negocio cerrado</span></span></th><th scope="col"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg><span>Los emails que se responden</span></span></th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pre"/></svg><span>Las preguntas que se repiten</span></span></th><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>Los WhatsApp que entran al taller</span><i class="pt" aria-hidden="true"></i>Al momento; el recado queda para el equipo</td><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-voz"/></svg>La llamada con el negocio cerrado</span><i class="pt" aria-hidden="true"></i>Al momento; el recado queda para el equipo</td><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Los emails que se responden</span><i class="pt" aria-hidden="true"></i>Primero en borrador; tras su prueba, al momento</td></tr>
+          <tr><th scope="row"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cit"/></svg><span>Las citas que llegan completas</span></span></th><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>Los WhatsApp que entran al taller</span><i class="pt" aria-hidden="true"></i>El taller confirma</td><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-voz"/></svg>La llamada con el negocio cerrado</span><i class="pt" aria-hidden="true"></i>El taller confirma</td><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Los emails que se responden</span><i class="pt" aria-hidden="true"></i>Primero en borrador; tras su prueba, al momento</td></tr>
+          <tr><th scope="row"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-con"/></svg><span>La consulta de cada moto, sin esperas</span></span></th><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>Los WhatsApp que entran al taller</span><i class="pt" aria-hidden="true"></i>Al momento</td><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-voz"/></svg>La llamada con el negocio cerrado</span><i class="pt" aria-hidden="true"></i>Al momento, tras su prueba</td><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Los emails que se responden</span><i class="pt" aria-hidden="true"></i>Primero en borrador; tras su prueba, al momento</td></tr>
+          <tr><th scope="row"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-ppt"/></svg><span>Llegar a todos los presupuestos</span></span></th><td class="na"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>Los WhatsApp que entran al taller</span><span class="ra" role="img" aria-label="No aplica">—</span></td><td class="na"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-voz"/></svg>La llamada con el negocio cerrado</span><span class="ra" role="img" aria-label="No aplica">—</span></td><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Los emails que se responden</span><i class="pt" aria-hidden="true"></i>Por aquí llegan las respuestas</td></tr>
+          <tr><th scope="row"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-sin"/></svg><span>Las consultas de siniestros, juntas para Julián</span></span></th><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>Los WhatsApp que entran al taller</span><i class="pt" aria-hidden="true"></i>Recoge la consulta; Julián contesta por aquí</td><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-voz"/></svg>La llamada con el negocio cerrado</span><i class="pt" aria-hidden="true"></i>Recoge la consulta</td><td class="si"><span class="lbl"><svg class="ic ic--m" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Los emails que se responden</span><i class="pt" aria-hidden="true"></i>Recoge la consulta; Julián contesta por aquí</td></tr>
+          <tr class="fila-rec"><th scope="row"><span class="ti"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-rec"/></svg><span>Los recambios que más se usan</span></span></th><td colspan="3" class="rec-t">No pasan por ningún canal: son un trabajo con vuestros datos que te entregamos.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="notas pq">
+      <p class="rv">«La consulta de cada moto, sin esperas» necesita leer vuestro programa, así que va con EINA en marcha; por teléfono, además, antes comprobamos que la voz se conecta bien con el programa.</p>
+    </div>
+
+    <hr class="rule">
+
+    <div class="sub-head rv">
+      <p class="eyebrow">Lo común</p>
+      <h3 class="t3">Lo que comparten canales y funcionalidades</h3>
+    </div>
+    <div class="base rv">
+      <h4 class="t3">La Base</h4>
+      <svg class="base-star" viewBox="-108 -108 216 216" aria-hidden="true" focusable="false"><g class="bs">
+        <circle class="bs-c" r="66"/>
+        <circle class="bs-c" r="30"/>
+        <g class="bs-bg"><path d="M0,0 L0,-100 L-6.12,-14.78 Z"/><path d="M0,0 L0,-100 L6.12,-14.78 Z"/><path d="M0,0 L100,-0 L14.78,-6.12 Z"/><path d="M0,0 L100,-0 L14.78,6.12 Z"/><path d="M0,0 L0,100 L6.12,14.78 Z"/><path d="M0,0 L0,100 L-6.12,14.78 Z"/><path d="M0,0 L-100,0 L-14.78,6.12 Z"/><path d="M0,0 L-100,0 L-14.78,-6.12 Z"/><path d="M0,0 L29.7,-29.7 L6.12,-14.78 Z"/><path d="M0,0 L29.7,-29.7 L14.78,-6.12 Z"/><path d="M0,0 L29.7,29.7 L14.78,6.12 Z"/><path d="M0,0 L29.7,29.7 L6.12,14.78 Z"/><path d="M0,0 L-29.7,29.7 L-6.12,14.78 Z"/><path d="M0,0 L-29.7,29.7 L-14.78,6.12 Z"/><path d="M0,0 L-29.7,-29.7 L-14.78,-6.12 Z"/><path d="M0,0 L-29.7,-29.7 L-6.12,-14.78 Z"/></g>
+        <g class="bs-f"><path d="M0,0 L0,-100 L6.12,-14.78 Z"/><path d="M0,0 L100,-0 L14.78,6.12 Z"/><path d="M0,0 L0,100 L-6.12,14.78 Z"/><path d="M0,0 L-100,0 L-14.78,-6.12 Z"/><path d="M0,0 L29.7,-29.7 L14.78,-6.12 Z"/><path d="M0,0 L29.7,29.7 L6.12,14.78 Z"/><path d="M0,0 L-29.7,29.7 L-14.78,6.12 Z"/><path d="M0,0 L-29.7,-29.7 L-6.12,-14.78 Z"/></g>
+        <g class="bs-l"><g ><path d="M0,0 L0,-100 L-6.12,-14.78 Z"/><path d="M0,0 L0,-100 L6.12,-14.78 Z"/><path d="M0,0 L100,-0 L14.78,-6.12 Z"/><path d="M0,0 L100,-0 L14.78,6.12 Z"/><path d="M0,0 L0,100 L6.12,14.78 Z"/><path d="M0,0 L0,100 L-6.12,14.78 Z"/><path d="M0,0 L-100,0 L-14.78,6.12 Z"/><path d="M0,0 L-100,0 L-14.78,-6.12 Z"/></g><g ><path d="M0,0 L29.7,-29.7 L6.12,-14.78 Z"/><path d="M0,0 L29.7,-29.7 L14.78,-6.12 Z"/><path d="M0,0 L29.7,29.7 L14.78,6.12 Z"/><path d="M0,0 L29.7,29.7 L6.12,14.78 Z"/><path d="M0,0 L-29.7,29.7 L-6.12,14.78 Z"/><path d="M0,0 L-29.7,29.7 L-14.78,6.12 Z"/><path d="M0,0 L-29.7,-29.7 L-14.78,-6.12 Z"/><path d="M0,0 L-29.7,-29.7 L-6.12,-14.78 Z"/></g></g>
+      </g></svg>
+      <p>La información general de vuestro negocio, cargada una vez: horarios, dirección, revisiones por modelo y cómo pedir una prueba de moto. Ahí queda también constancia de lo que entra, de lo que se contesta y de lo que sigue pendiente, y de ahí salen los avisos a tu equipo. Lo que vive en vuestro programa (la moto, el cliente, las facturas) no se copia: se lee en el momento en que hace falta.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · EL SISTEMA EN MOVIMIENTO -->
+<section class="s s--dark" id="como-funciona">
+  <div class="w w--wide">
+    <div class="sec-head rv">
+      <p class="eyebrow">El sistema en movimiento</p>
+      <h2 class="t2">Cinco situaciones del día a día</h2>
+      <p class="lead">Elige una o deja que pasen solas: cada punto dorado es una información que sale de donde llega el cliente, pasa por la Base y llega lista a quien la necesita.</p>
+    </div>
+
+    <div class="fx" id="fx-stage">
+      <div class="fx-chips" role="group" aria-label="Situaciones" id="fx-chips"></div>
+      <div class="fx-wrap" id="fx-wrap"></div>
+      <div class="fx-tools">
+        <div class="fx-leg"><span><i></i>información en movimiento</span><span>un operario coloca la cita y manda la confirmación</span></div>
+        <button class="fx-play" type="button" id="fx-play" hidden>Pausar</button>
+      </div>
+
+      <!-- Paso a paso en texto: es la versión sin JavaScript y el apoyo de la animación -->
+      <div class="fx-sc" data-scene="0" data-title="Las preguntas que se repiten">
+        <h3>Las preguntas que se repiten</h3>
+        <ol>
+          <li data-from="" data-to="whats" data-toast="“¿Dónde estáis?”"><b>WhatsApp.</b> Un cliente escribe al número de siempre, a cualquier hora y en su idioma.</li>
+          <li data-from="whats" data-to="base" data-toast="información del negocio"><b>La Base.</b> El sistema consulta la información general, cargada una sola vez: horarios, dirección, revisiones por modelo y cómo pedir una prueba de moto.</li>
+          <li data-from="base" data-to="resp" data-toast="respondido"><b>Respuesta al cliente.</b> La pregunta que se repite se contesta sola. Tu equipo deja de contestarla a mano.</li>
+          <li data-from="base" data-to="recado" data-toast="recado registrado"><b>Recado al equipo.</b> Lo que necesita a una persona queda recogido y llega a quien toca: taller, recambios, ventas, siniestros o tú. Sigue pendiente hasta que alguien lo atiende.</li>
+        </ol>
+      </div>
+      <div class="fx-sc" data-scene="1" data-title="La llamada con el negocio cerrado">
+        <h3>La llamada con el negocio cerrado</h3>
+        <ol>
+          <li data-from="" data-to="voz" data-toast="domingo, negocio cerrado"><b>Teléfono.</b> Alguien llama un domingo para pedir cita de taller. Hoy la centralita solo da el horario.</li>
+          <li data-from="voz" data-to="base" data-toast="quién, qué moto, qué trabajo"><b>La Base.</b> El asistente de voz contesta y le pregunta quién es, qué moto tiene y qué trabajo quiere.</li>
+          <li data-from="base" data-to="op" data-toast="petición completa"><b>Un operario.</b> Al abrir, tu taller tiene la petición completa. Si nadie la atiende, vuelve a aparecer como pendiente.</li>
+          <li data-from="op" data-to="cita" data-toast="cita confirmada"><b>Cita.</b> Un operario coloca la cita en el calendario y le manda la confirmación.</li>
+        </ol>
+      </div>
+      <div class="fx-sc" data-scene="2" data-title="Llegar a todos los presupuestos">
+        <h3>Llegar a todos los presupuestos</h3>
+        <ol>
+          <li data-from="" data-to="mail" data-toast="el cliente ha contestado"><b>Correo.</b> El presupuesto lo hacéis y lo mandáis como hasta ahora. El cliente contesta.</li>
+          <li data-from="mail" data-to="base" data-toast="acepta, pregunta o no acepta"><b>La Base.</b> Su respuesta entra en el seguimiento, clasificada: acepta, pregunta algo o no acepta.</li>
+          <li data-from="base" data-to="ppt" data-toast="a la vista, con sus días"><b>Presupuestos a la vista.</b> Quien hizo la oferta la ve con los días que lleva esperando, le contesta desde su correo y la marca como atendida. Hasta entonces sigue a la vista.</li>
+        </ol>
+      </div>
+      <div class="fx-sc" data-scene="3" data-title="La consulta de cada moto, sin esperas">
+        <h3>La consulta de cada moto, sin esperas</h3>
+        <ol>
+          <li data-from="" data-to="whats" data-toast="“¿Cuándo me toca la revisión?”"><b>WhatsApp.</b> El dueño de una moto pregunta cuándo le toca la revisión. Da su matrícula y su DNI.</li>
+          <li data-from="whats" data-to="base" data-toast="matrícula y DNI"><b>La Base.</b> Si son del mismo dueño, la consulta sigue. Si no coinciden, no se le da ningún dato y la consulta pasa a una persona.</li>
+          <li data-from="eina" data-to="base" data-toast="se lee en el momento"><b>Datos de la casa.</b> La moto, el cliente y las facturas siguen en vuestro programa: no se copian, se leen en el momento en que hace falta.</li>
+          <li data-from="base" data-to="rev" data-toast="última y próxima revisión"><b>Revisión de la moto.</b> Recibe en el momento cuándo hizo la última revisión y cuándo le toca la siguiente, sin que recepción tenga que mirarlo.</li>
+        </ol>
+      </div>
+      <div class="fx-sc" data-scene="4" data-title="Los recambios que más se usan">
+        <h3>Los recambios que más se usan</h3>
+        <ol>
+          <li data-from="" data-to="eina" data-toast="referencias del catálogo"><b>Datos de la casa.</b> Hoy los recambios que más se usan los sacas tú, copiando referencias del catálogo modelo a modelo y año a año.</li>
+          <li data-from="eina" data-to="rec" data-toast="un fichero para el taller"><b>Listado para el taller.</b> Es un trabajo con vuestros datos que te entregamos en un fichero: la tabla por modelo y año, el consumo de más a menos, el listado para el taller y qué referencias comparten varios modelos. No pasa por ningún canal.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · CÓMO TRABAJAMOS -->
+<section class="s s--dark" id="como">
+  <div class="w">
+    <div class="sec-head rv">
+      <h2 class="t2">Cómo trabajamos</h2>
+    </div>
+    <div class="tlx rv" id="tlx">
+      <ol class="tlx-l">
+        <li class="tlx-f done"><button class="tlx-b" type="button" aria-expanded="false"><span class="tlx-i"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-f1"/></svg></span><span class="tlx-tx"><span class="tlx-n">1</span><span class="tlx-t">Entender tu negocio</span></span></button><p class="tlx-x">La primera reunión: me cuentas cómo trabajáis y qué os quita tiempo.</p></li>
+        <li class="tlx-f here"><button class="tlx-b" type="button" aria-expanded="false"><span class="tlx-i"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-f2"/></svg></span><span class="tlx-tx"><span class="tlx-aq">Estamos aquí</span><span class="tlx-n">2</span><span class="tlx-t">Presentación del plan</span></span></button><p class="tlx-x">Este plan: lo que me contaste, lo que montaríamos, lo que cuesta y las condiciones.</p></li>
+        <li class="tlx-f"><button class="tlx-b" type="button" aria-expanded="false"><span class="tlx-i"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-f3"/></svg></span><span class="tlx-tx"><span class="tlx-n">3</span><span class="tlx-t">Cierre del acuerdo</span></span></button><p class="tlx-x">Dime qué piezas quieres ahora y por dónde quieres empezar, y lo dejamos acordado.</p></li>
+        <li class="tlx-f"><button class="tlx-b" type="button" aria-expanded="false"><span class="tlx-i"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-f4"/></svg></span><span class="tlx-tx"><span class="tlx-n">4</span><span class="tlx-t">Diagnóstico en tu negocio</span></span></button><p class="tlx-x">Cuando me digas que sí, paso un tiempo en tu negocio antes de construir: veo cómo trabajáis hoy y hablo con cada persona que va a usar el sistema, para que cada pieza encaje con vuestro día a día. Ahí medimos el punto de partida.</p></li>
+        <li class="tlx-f"><button class="tlx-b" type="button" aria-expanded="false"><span class="tlx-i"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-f5"/></svg></span><span class="tlx-tx"><span class="tlx-n">5</span><span class="tlx-t">Construcción</span></span></button><p class="tlx-x">Lo que depende de un tercero se prueba antes de construirlo. Cada pieza que habla con vuestros clientes empieza contestando vigilada y gana autonomía cuando responde bien, pieza a pieza.</p></li>
+        <li class="tlx-f"><button class="tlx-b" type="button" aria-expanded="false"><span class="tlx-i"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-f6"/></svg></span><span class="tlx-tx"><span class="tlx-n">6</span><span class="tlx-t">Formación en persona</span></span></button><p class="tlx-x">En la entrega de cada pieza hago una formación en persona con tu equipo. Va incluida. Y volvemos a medir, para ver qué ha cambiado.</p></li>
+        <li class="tlx-f"><button class="tlx-b" type="button" aria-expanded="false"><span class="tlx-i"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-f7"/></svg></span><span class="tlx-tx"><span class="tlx-n">7</span><span class="tlx-t">Acompañamiento</span></span></button><p class="tlx-x">Vigilamos, corregimos, actualizamos y adaptamos lo que cambie. Si algo deja de funcionar, te contesto en 48 horas como máximo. Si pides un cambio o una pieza nueva, te paso el presupuesto en 48 horas y no se cobra nada sin que lo apruebes.</p></li>
+      </ol>
+    </div>
+    <div class="panel rv">
+      <p>El asistente avisa siempre de que es una inteligencia artificial y solo atiende asuntos vuestros. Los datos de una moto solo se dan a quien acredita ser su dueño.</p>
+      <p>Vuestros datos son vuestros. El precio de lo acordado es cerrado.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · PRECIO -->
+<section class="s s--canvas" id="precio">
+  <div class="w">
+    <div class="sec-head rv">
+      <p class="eyebrow">Precio</p>
+      <h2 class="t2">El sistema completo</h2>
+      <p class="lead">Marca o desmarca las piezas y mira cómo cambian el total y el acompañamiento. La Base va siempre.</p>
+    </div>
+
+    <div class="pills rv">
+      <button class="pill" type="button" data-preset="empezar" aria-pressed="false">Por dónde empezar</button>
+      <button class="pill" type="button" data-preset="completo" aria-pressed="true">Sistema completo</button>
+    </div>
+
+    <div class="sel">
+      <div>
+        <ul class="pzl" style="list-style:none" id="pzl">
+          <li class="grp">La Base</li>
+          <li class="pz fijo" data-id="base" data-precio="3040" data-mes="200"><label><input type="checkbox" checked disabled><span class="box"></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-base"/></svg><span><span class="nom">La Base<small>va siempre</small></span><span class="des">La información general del negocio y la constancia de cada conversación, para todos los canales.</span></span><span class="pr">3.040 €</span></label></li>
+          <li class="grp">Canales</li>
+          <li class="pz" data-id="wa" data-precio="3960" data-mes="50" data-tipo="canal"><label><input type="checkbox" checked><span class="box"></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg><span><span class="nom">Los WhatsApp que entran al taller</span><span class="des">Mensajes que esperan a que alguien tenga un hueco.</span></span><span class="pr">3.960 €</span></label></li>
+          <li class="pz" data-id="voz" data-precio="2948" data-mes="150" data-tipo="canal"><label><input type="checkbox" checked><span class="box"></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-voz"/></svg><span><span class="nom">La llamada con el negocio cerrado</span><span class="des">Llamadas en domingo y en festivo que se quedan en el aviso de horario.</span></span><span class="pr">2.948 €</span></label></li>
+          <li class="pz" data-id="mail" data-precio="960" data-mes="50" data-tipo="canal"><label><input type="checkbox" checked><span class="box"></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg><span><span class="nom">Los emails que se responden</span><span class="des">Respuestas a presupuestos repartidas en un buzón.</span></span><span class="pr">960 €</span></label></li>
+          <li class="grp">Funcionalidades</li>
+          <li class="pz" data-id="pre" data-precio="640" data-mes="0" data-canales="wa,voz,mail"><label><input type="checkbox" checked><span class="box"></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pre"/></svg><span><span class="nom">Las preguntas que se repiten</span><span class="des">Las mismas preguntas contestadas a mano cada día.</span></span><span class="pr">640 €</span></label></li>
+          <li class="pz" data-id="cit" data-precio="960" data-mes="0" data-canales="wa,voz,mail"><label><input type="checkbox" checked><span class="box"></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cit"/></svg><span><span class="nom">Las citas que llegan completas</span><span class="des">Peticiones de cita que hay que perseguir por correo, por portal o por teléfono.</span></span><span class="pr">960 €</span></label></li>
+          <li class="pz" data-id="ppt" data-precio="3520" data-mes="0" data-canales="mail"><label><input type="checkbox" checked><span class="box"></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-ppt"/></svg><span><span class="nom">Llegar a todos los presupuestos</span><span class="des">Clientes que contestan a un presupuesto y no reciben respuesta.</span></span><span class="pr">3.520 €</span></label></li>
+          <li class="pz" data-id="rec" data-precio="1760" data-mes="0" data-canales=""><label><input type="checkbox" checked><span class="box"></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-rec"/></svg><span><span class="nom">Los recambios que más se usan</span><span class="des">Referencias copiadas a mano, modelo a modelo y año a año.</span></span><span class="pr">1.760 €</span></label></li>
+          <li class="pz" data-id="con" data-precio="3200" data-mes="0" data-canales="wa,voz,mail"><label><input type="checkbox" checked><span class="box"></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-con"/></svg><span><span class="nom">La consulta de cada moto, sin esperas</span><span class="des">Recepción ocupada en mirar revisiones en el programa.</span></span><span class="pr">3.200 €</span></label></li>
+          <li class="pz" data-id="sin" data-precio="3200" data-mes="0" data-canales="wa,voz,mail" data-necesita="ppt"><label><input type="checkbox" checked><span class="box"></span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-sin"/></svg><span><span class="nom">Las consultas de siniestros, juntas para Julián</span><span class="des">Julián consulta el portal de la aseguradora y contesta desde el mismo panel, por correo o por WhatsApp.</span></span><span class="pr">3.200 €</span></label></li>
+        </ul>
+        <p class="aviso" id="aviso" role="status" aria-live="polite"></p>
+        <p class="nota-sel">Por dónde empezamos lo decidimos juntos.</p>
+      </div>
+      <aside class="sum" aria-label="Resumen de tu selección">
+        <p class="eyebrow" id="sum-et">Sistema completo</p>
+        <p class="big" id="sum-total">24.188 €</p>
+        <p class="sub">Importes sin IVA</p>
+        <hr>
+        <p class="eyebrow">Acompañamiento</p>
+        <p class="mid" id="sum-mes">500 €<small>al mes</small></p>
+        <p class="resto" id="sum-resto" hidden>Segunda fase: <b id="sum-resto-v"></b></p>
+      </aside>
+    </div>
+
+    <div class="acomp">
+      <div class="sub-head rv">
+        <p class="eyebrow">Acompañamiento</p>
+        <h3 class="t3">Cada mes</h3>
+      </div>
+      <ul class="cmp rv" id="cmp">
+        <li data-for="base" data-mes="200"><span class="nom">La Base</span><span class="des">Que todo funcione, su vigilancia y la corrección de errores.</span><span class="pr">200 €<small style="font-family:var(--sans);font-style:normal;font-size:13px;color:var(--stone)"> al mes</small></span></li>
+        <li data-for="wa" data-mes="50"><span class="nom">Los WhatsApp que entran al taller</span><span class="des">La conexión con vuestro número.</span><span class="pr">50 €<small style="font-family:var(--sans);font-style:normal;font-size:13px;color:var(--stone)"> al mes</small></span></li>
+        <li data-for="voz" data-mes="150"><span class="nom">La llamada con el negocio cerrado</span><span class="des">La línea y el servicio de voz.</span><span class="pr">150 €<small style="font-family:var(--sans);font-style:normal;font-size:13px;color:var(--stone)"> al mes</small></span></li>
+        <li data-for="mail" data-mes="50"><span class="nom">Los emails que se responden</span><span class="des">La lectura del buzón.</span><span class="pr">50 €<small style="font-family:var(--sans);font-style:normal;font-size:13px;color:var(--stone)"> al mes</small></span></li>
+        <li data-for="con" data-mes="50"><span class="nom">Conexión con EINA</span><span class="des">La lectura de vuestro programa, también cuando el programa cambia.</span><span class="pr">50 €<small style="font-family:var(--sans);font-style:normal;font-size:13px;color:var(--stone)"> al mes</small></span></li>
+        <li class="tot"><span class="nom">Acompañamiento</span><span class="des">Si quitas una pieza, baja su parte del acompañamiento.</span><span class="pr" id="cmp-total">500 €<small style="font-family:var(--sans);font-style:normal;font-size:13px;color:var(--stone)"> al mes</small></span></li>
+      </ul>
+      <div class="sub-head rv cubre-h">
+        <h3 class="t3">Qué cubre el acompañamiento</h3>
+      </div>
+      <div class="g3 g3--c cubre">
+        <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-a1"/></svg></div><h4 class="t4">Vigilancia</h4><p>Comprobamos de forma periódica que cada pieza y cada conexión funcionan, también las que se usan poco. El objetivo es detectar una incidencia antes de que te afecte.</p></article>
+        <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-a2"/></svg></div><h4 class="t4">Corrección de errores</h4><p>Si algo falla, lo corregimos.</p></article>
+        <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-a3"/></svg></div><h4 class="t4">Actualizaciones</h4><p>El sistema se mantiene al día.</p></article>
+        <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-a4"/></svg></div><h4 class="t4">Cambios de proveedor</h4><p>Si un proveedor cambia o deja de ofrecer un servicio, adaptamos la conexión o lo sustituimos. Ese trabajo queda cubierto.</p></article>
+        <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-a5"/></svg></div><h4 class="t4">Accesos</h4><p>Renovamos los accesos y las autorizaciones cuando caducan.</p></article>
+        <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-a6"/></svg></div><h4 class="t4">Ajustes pequeños</h4><p>Cambiar un texto, un horario o una respuesta queda cubierto.</p></article>
+      </div>
+      <div class="llano">
+        <p class="rv">Los mensajes de WhatsApp los cobra Meta aparte, según su tarifa, en vuestra cuenta.</p>
+        <p class="rv">Si vuestro número necesita un proveedor de WhatsApp, su cuota va a vuestro nombre.</p>
+        <p class="rv">«Las preguntas que se repiten», «Las citas que llegan completas», «Llegar a todos los presupuestos», «Los recambios que más se usan» y «Las consultas de siniestros, juntas para Julián» no llevan acompañamiento propio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULADORA: inicio. Para quitarla entera, borra desde este comentario hasta «CALCULADORA: fin» (el script va dentro). -->
+<section class="s s--sand" id="calculadora">
+  <div class="w">
+    <div class="sec-head rv">
+      <p class="eyebrow">Lo que puede cambiar en tu negocio</p>
+      <h2 class="t2">Con tus números</h2>
+      <p class="lead">Escribe tus cifras y mira la cuenta a final de año. Con las tres primeras sale la parte de las llamadas; con las dos últimas, la de los presupuestos.</p>
+    </div>
+    <div class="calc">
+      <form class="campos rv" id="calc-f" onsubmit="return false" autocomplete="off">
+        <div class="grupo">
+        <p class="eyebrow grupo-t">Llamadas</p>
+        <div class="campo"><label for="c-llam">Llamadas a la semana con el negocio cerrado</label><input id="c-llam" type="text" inputmode="decimal" aria-describedby="e-llam c-res"><span class="err" id="e-llam" role="alert"></span></div>
+        <div class="campo"><label for="c-dies">De cada diez, cuántas acabarían en trabajo</label><input id="c-dies" type="text" inputmode="decimal" aria-describedby="e-dies c-res"><span class="err" id="e-dies" role="alert"></span></div>
+        <div class="campo"><label for="c-trab">Importe medio de un trabajo de taller (€)</label><input id="c-trab" type="text" inputmode="decimal" aria-describedby="e-trab c-res"><span class="err" id="e-trab" role="alert"></span></div>
+        </div>
+        <div class="grupo">
+        <p class="eyebrow grupo-t">Presupuestos</p>
+        <div class="campo"><label for="c-resp">Respuestas a presupuestos sin atender al mes</label><input id="c-resp" type="text" inputmode="decimal" aria-describedby="e-resp c-res"><span class="err" id="e-resp" role="alert"></span></div>
+        <div class="campo"><label for="c-pres">Importe medio de un presupuesto (€)</label><input id="c-pres" type="text" inputmode="decimal" aria-describedby="e-pres c-res"><span class="err" id="e-pres" role="alert"></span></div>
+        </div>
+      </form>
+      <div class="res rv" id="c-res" role="status" aria-live="polite">
+        <p class="al">Al año</p>
+        <p class="big" id="c-total">—</p>
+        <p class="et">lo que hoy queda sin atender</p>
+        <p class="cuenta" id="c-cuenta">Escribe tus cifras y aquí aparece la cuenta.</p>
+        <p class="aviso2">Es un cálculo con las cifras que tú pones, no una promesa de resultado.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var ids={llam:'c-llam',dies:'c-dies',trab:'c-trab',resp:'c-resp',pres:'c-pres'};
+    var el={};for(var k in ids)el[k]=document.getElementById(ids[k]);
+    var tot=document.getElementById('c-total'),cu=document.getElementById('c-cuenta');
+    if(!tot||!cu)return;
+    /* Lectura en formato español: punto = miles, coma = decimales (como máximo dos).
+       Admite espacios y «€» / «euros» al final. Cualquier otra cosa devuelve null. */
+    function num(s){
+      s=String(s||'').trim().replace(/\s*(€|euros?)$/i,'').replace(/\s/g,'');
+      var m=/^((?:[1-9]\d{0,2}(?:\.\d{3})+)|\d+)(?:,(\d{1,2}))?$/.exec(s);
+      if(!m)return null;
+      return parseFloat(m[1].replace(/\./g,'')+(m[2]?'.'+m[2]:''));
+    }
+    function mil(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
+    /* un número con sus decimales (hasta dos) en formato español: 1.500 · 99,5 · 99,55 */
+    function fe(n){var p=n.toFixed(2).split('.');return mil(p[0])+(p[1]==='00'?'':','+p[1].replace(/0$/,''))}
+    function f(n){return fe(n)+' €'}
+    function g(n){return fe(n)}
+    function chk(k,max){
+      var raw=el[k].value.trim(),e=document.getElementById('e-'+k),v=null,msg='';
+      if(raw!==''){
+        v=num(raw);
+        if(v===null)msg='«'+raw+'» no es una cifra válida. Escribe solo números: punto para los miles (1.500) y coma para los decimales (12,5), con dos decimales como máximo.';
+        else if(max&&v>max){msg='Aquí va un número del 0 al '+max+'. Prueba con '+max+' o menos.';v=null}
+      }
+      e.textContent=msg;el[k].setAttribute('aria-invalid',msg?'true':'false');
+      return v;
+    }
+    function calc(){
+      var llam=chk('llam'),dies=chk('dies',10),trab=chk('trab'),resp=chk('resp'),pres=chk('pres');
+      var parts=[],sum=0,txt=[];
+      if(llam!==null&&dies!==null&&trab!==null){
+        var a=Math.round(52*llam*(dies/10)*trab);sum+=a;parts.push(a);
+        txt.push('52 semanas × '+g(llam)+' llamadas × '+g(dies)+' de cada 10 × '+f(trab)+' = '+f(a));
+      }
+      if(resp!==null&&pres!==null){
+        var b=Math.round(12*resp*pres);sum+=b;parts.push(b);
+        txt.push('12 meses × '+g(resp)+' respuestas × '+f(pres)+' = '+f(b));
+      }
+      if(!parts.length){tot.textContent='—';cu.textContent='Escribe tus cifras y aquí aparece la cuenta.';return}
+      tot.textContent=f(sum);
+      cu.textContent=txt.join('  +  ')+(parts.length>1?'  =  '+f(sum):'');
+    }
+    document.getElementById('calc-f').addEventListener('input',calc);
+    calc();
+  })();
+  </script>
+</section>
+<!-- CALCULADORA: fin -->
+
+<!-- 11 · PLAZOS -->
+<section class="s s--canvas" id="plazos">
+  <div class="w">
+    <div class="sec-head rv">
+      <p class="eyebrow">Plazos orientativos</p>
+      <h2 class="t2">Desde que tenemos los accesos</h2>
+      <p class="lead">Cuentan desde que nos entregáis los accesos y el material de cada pieza. Son orientativos: los cerramos contigo al empezar cada una.</p>
+    </div>
+    <div class="eje" id="plazos-g">
+      <div class="eje-t">Semanas</div>
+      <div class="eje-h" aria-hidden="true"><div class="ticks"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span></div><div></div></div>
+      <ol class="pls">
+      <li class="pl"><div class="pl-n"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-base"/></svg><b>La Base</b></div>
+        <div class="pl-b"><div class="track" role="img" aria-label="Unas 3 semanas"><i class="a" data-w="3" style="width:42.857%"></i></div><em>unas 3 semanas</em></div></li>
+      <li class="pl"><div class="pl-n"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg><b>Los WhatsApp que entran al taller, con las preguntas que se repiten y las citas que llegan completas</b></div>
+        <div class="pl-b"><div class="track" role="img" aria-label="4 a 6 semanas"><i class="a" data-w="4" style="width:57.143%"></i><i class="b" data-w="6" style="width:85.714%"></i></div><em>4 a 6 semanas</em></div></li>
+      <li class="pl"><div class="pl-n"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-voz"/></svg><b>La llamada con el negocio cerrado</b><span>desde la llamada de prueba</span></div>
+        <div class="pl-b"><div class="track" role="img" aria-label="3 a 5 semanas"><i class="a" data-w="3" style="width:42.857%"></i><i class="b" data-w="5" style="width:71.429%"></i></div><em>3 a 5 semanas</em></div></li>
+      <li class="pl"><div class="pl-n"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg><b>Los emails que se responden</b></div>
+        <div class="pl-b"><div class="track" role="img" aria-label="3 a 4 semanas"><i class="a" data-w="3" style="width:42.857%"></i><i class="b" data-w="4" style="width:57.143%"></i></div><em>3 a 4 semanas</em></div></li>
+      <li class="pl"><div class="pl-n"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-ppt"/></svg><b>Llegar a todos los presupuestos</b></div>
+        <div class="pl-b"><div class="track" role="img" aria-label="4 a 6 semanas"><i class="a" data-w="4" style="width:57.143%"></i><i class="b" data-w="6" style="width:85.714%"></i></div><em>4 a 6 semanas</em></div></li>
+      <li class="pl"><div class="pl-n"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-rec"/></svg><b>Los recambios que más se usan</b><span>desde que nos pasáis las exportaciones</span></div>
+        <div class="pl-b"><div class="track" role="img" aria-label="2 a 4 semanas"><i class="a" data-w="2" style="width:28.571%"></i><i class="b" data-w="4" style="width:57.143%"></i></div><em>2 a 4 semanas</em></div></li>
+      <li class="pl"><div class="pl-n"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-con"/></svg><b>La consulta de cada moto, sin esperas</b><span>desde que comprobamos EINA con vuestra clave</span></div>
+        <div class="pl-b"><div class="track" role="img" aria-label="5 a 7 semanas"><i class="a" data-w="5" style="width:71.429%"></i><i class="b" data-w="7" style="width:100.000%"></i></div><em>5 a 7 semanas</em></div></li>
+      <li class="pl"><div class="pl-n"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-sin"/></svg><b>Las consultas de siniestros, juntas para Julián</b></div>
+        <div class="pl-b"><div class="track" role="img" aria-label="4 a 6 semanas"><i class="a" data-w="4" style="width:57.143%"></i><i class="b" data-w="6" style="width:85.714%"></i></div><em>4 a 6 semanas</em></div></li>
+    </ol>
+    </div>
+    <div class="pl-leg"><span><i style="background:var(--obs)"></i>mínimo</span><span><i style="background:var(--gold)"></i>hasta el máximo</span></div>
+  </div>
+</section>
+
+<!-- 12 · AMPLIACIONES Y LO QUE QUEDA FUERA -->
+<section class="s s--sand" id="ampliaciones">
+  <div class="w">
+    <div class="sec-head rv">
+      <p class="eyebrow">Ampliaciones</p>
+      <h2 class="t2">Las presupuestamos cuando las pidas</h2>
+    </div>
+    <div class="g2">
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-x1"/></svg></div><h3 class="t4">Otro número de WhatsApp</h3><p>Lo mismo en otro de vuestros números: ventas, KTM y Kymco, recambios o siniestros.</p></article>
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-x2"/></svg></div><h3 class="t4">Otro idioma en la voz</h3><p>Quien llama en otro idioma también deja su recado. Cada idioma entra cuando pasa su prueba.</p></article>
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-x3"/></svg></div><h3 class="t4">Stock de recambios</h3><p>Quien pregunta por una pieza sabe si está en stock sin que recambios tenga que mirarlo. Con EINA en marcha.</p></article>
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-x4"/></svg></div><h3 class="t4">Cita de taller al momento</h3><p>El cliente sale de la conversación con su cita, con día y hora, sin esperar a que el taller la confirme. Para darla bien hace falta un calendario que funcione, los tipos de cita clasificados por trabajo y saber cuánto dura cada uno. Lo decidimos juntos cuando tengamos esos datos.</p></article>
+    </div>
+
+    <hr class="rule">
+
+    <div class="sub-head rv">
+      <p class="eyebrow">Lo que queda fuera</p>
+      <h3 class="t3">Y por qué</h3>
+    </div>
+    <div class="g2">
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-x5"/></svg></div><h4 class="t4">Siniestros con las aseguradoras</h4><p>Me planteaste que el sistema entrara en los portales de las compañías. La información está repartida entre varios portales y el correo, y hoy no hay una forma fiable de leerla, así que el sistema no entra en ellos ni devuelve la respuesta por teléfono. Las consultas sí se recogen: ver «Las consultas de siniestros, juntas para Julián».</p></article>
+      <article class="card rv"><div class="card-h"><svg class="ic ic--c" aria-hidden="true" focusable="false"><use href="#i-x6"/></svg></div><h4 class="t4">«¿Cómo está mi moto en taller?»</h4><p>EINA todavía no entrega el estado de las órdenes abiertas. Cuando lo haga, se puede añadir. Mientras tanto, la pregunta pasa a una persona.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · CONDICIONES -->
+<section class="s s--canvas" id="condiciones">
+  <div class="w">
+    <div class="sec-head rv">
+      <h2 class="t2">Condiciones</h2>
+    </div>
+    <ol class="conds">
+      <li class="rv">Los plazos cuentan desde que nos entregáis los accesos y el material.</li>
+      <li class="rv">«La llamada con el negocio cerrado» y «La consulta de cada moto, sin esperas» dependen de un tercero: antes de construirlas comprobamos que van a funcionar.</li>
+      <li class="rv">Las cuentas que son vuestras van a vuestro nombre: WhatsApp, el número de teléfono, EINA y el correo. El servidor, el modelo y la voz corren de nuestra cuenta.</li>
+      <!-- TEXTO ENCARGADO POR EL DIRECTOR (adenda 6, 2026-11-17; sustituye al de la adenda 5): sale de condiciones-comerciales.md, líneas 72-75. -->
+      <li class="rv">Si la comprobación de una de esas piezas no da el resultado esperado, esa pieza no se construye y no supone coste alguno.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 14 · PRÓXIMOS PASOS -->
+<section class="s s--dark" id="decision">
+  <div class="w">
+    <div class="fin">
+      <div class="rv">
+        <p class="eyebrow" style="margin-bottom:22px">Próximos pasos</p>
+        <h2 class="t2">La decisión</h2>
+        <p class="riel">Dime qué piezas quieres ahora y por dónde quieres empezar.</p>
+        <p class="firma">Vicente Calderón<span>Agent Luce</span></p>
+      </div>
+      <div class="fin-r">
+        <ol class="tres rv">
+          <li><span class="n">01</span><div><b>Qué piezas entran ahora</b><p>Y cuáles quedan para después.</p></div></li>
+          <li><span class="n">02</span><div><b>Por dónde se empieza</b><p>La Base va siempre.</p></div></li>
+          <li><span class="n">03</span><div><b>Accesos y diagnóstico</b><p>Vosotros: los accesos y el material de cada pieza. Nosotros: el diagnóstico en tu negocio y, después, la Base.</p></div></li>
+        </ol>
+        <!-- VALIDEZ --><p class="validez rv">Este plan mantiene sus condiciones hasta el 2 de diciembre de 2026. Pasada esa fecha, lo revisamos juntos según la disponibilidad de ese momento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- 15 · PIE -->
+<footer class="pie">
+  <div class="w pie-i">
+    <svg class="marca" viewBox="0 0 87.752 26.216" width="88" height="26" role="img" aria-label="Agent Luce"><use href="#marca"/></svg>
+    <span>Plan confidencial · Honda Ibiza · Noviembre de 2026 · Importes sin IVA</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* barra de progreso */
+  var bar=document.getElementById('progress');
+  var pend=false;
+  var nav=document.getElementById('nav'),navA=nav?[].slice.call(nav.querySelectorAll('.nav-l a')):[],navT=navA.map(function(a){return document.querySelector(a.getAttribute('href'))}),navH=document.getElementById('inicio'),navCur=-2,navOn=false;
+  function navUpd(){
+    var line=innerHeight*.4,i=-1,k;
+    for(k=0;k<navT.length;k++){if(navT[k]&&navT[k].getBoundingClientRect().top<=line)i=k}
+    var on=navH?navH.getBoundingClientRect().bottom<160:true;
+    if(on!==navOn){navOn=on;nav.classList.toggle('on',on)}
+    if(i!==navCur){
+      navCur=i;
+      navA.forEach(function(a,j){if(j===i)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
+      var ul=nav.querySelector('.nav-l'),a=navA[i];
+      if(a&&ul.scrollWidth>ul.clientWidth)ul.scrollLeft=a.offsetLeft-(ul.clientWidth-a.offsetWidth)/2;
+    }
+  }
+  if(nav){
+    var nTimer=null,nTipo='mouse',marca=nav.querySelector('.nav-marca');
+    var nAbrir=function(){clearTimeout(nTimer);nTimer=null;nav.classList.add('open')};
+    var nCerrar=function(ms){clearTimeout(nTimer);nTimer=setTimeout(function(){nTimer=null;nav.classList.remove('open')},ms)};
+    document.addEventListener('pointermove',function(e){
+      if(e.pointerType!=='mouse')return;
+      if(e.clientY<=70)nAbrir();else if(nav.classList.contains('open')&&!nTimer)nCerrar(600);
+    },{passive:true});
+    nav.addEventListener('focusin',function(e){if(e.target.matches&&e.target.matches(':focus-visible')){nAbrir();nav.classList.add('on')}});
+    nav.addEventListener('focusout',function(e){if(!nav.contains(e.relatedTarget))nCerrar(600)});
+    marca.addEventListener('pointerdown',function(e){nTipo=e.pointerType});
+    marca.addEventListener('click',function(e){if(nTipo==='touch'||nTipo==='pen'){e.preventDefault();clearTimeout(nTimer);nTimer=null;nav.classList.toggle('open')}nTipo='mouse'});
+    nav.querySelector('.nav-l').addEventListener('click',function(e){if(e.target.closest('a')&&matchMedia('(hover: none)').matches)nav.classList.remove('open')});
+  }
+  function prog(){pend=false;var d=document.documentElement,m=d.scrollHeight-d.clientHeight;bar.style.transform='scaleX('+(m>0?Math.min(1,d.scrollTop/m):0)+')';if(nav)navUpd()}
+  function ask(){if(!pend){pend=true;requestAnimationFrame(prog)}}
+  addEventListener('scroll',ask,{passive:true});addEventListener('resize',ask);document.fonts&&document.fonts.ready.then(ask);prog();
+
+  /* invitación a bajar de la portada: desaparece tras el primer scroll */
+  var cue=document.querySelector('.cue');
+  if(cue){
+    var cueOff=function(){cue.classList.add('off');setTimeout(function(){cue.remove()},800)};
+    if((window.pageYOffset||0)>8)cue.remove();
+    else addEventListener('scroll',function f(){if((window.pageYOffset||0)>8){removeEventListener('scroll',f);cueOff()}},{passive:true});
+  }
+
+  /* aparecer al entrar en pantalla */
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)||reduce){rv.forEach(function(e){e.classList.add('in')})}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0,rootMargin:'0px'});
+    rv.forEach(function(e){
+      var sib=e.parentNode?[].slice.call(e.parentNode.children).filter(function(c){return c.classList.contains('rv')}):[e];
+      e.style.transitionDelay=Math.min(sib.indexOf(e),3)*(innerWidth<760?30:60)+'ms';
+      io.observe(e);
+    });
+  }
+
+  /* barras de plazos: la lista ya está completa; solo se anima transform al entrar */
+  var tg=document.getElementById('plazos-g');
+  if(tg){
+    [].forEach.call(tg.querySelectorAll('.pl'),function(l,k){[].forEach.call(l.querySelectorAll('.track i'),function(i){i.style.setProperty('--k',k)})});
+    if(reduce||!('IntersectionObserver' in window))tg.classList.add('in');
+    else new IntersectionObserver(function(es,o){if(es[0].isIntersecting){tg.classList.add('in');o.disconnect()}},{threshold:0}).observe(tg);
+  }
+
+  /* ---------- selector de precio ---------- */
+  (function(){
+    var rows=[].slice.call(document.querySelectorAll('#pzl .pz'));
+    if(!rows.length)return;
+    var by={};rows.forEach(function(r){by[r.dataset.id]={li:r,inp:r.querySelector('input'),precio:+r.dataset.precio,mes:+r.dataset.mes,tipo:r.dataset.tipo||'',canales:(r.dataset.canales||'').split(',').filter(Boolean),necesita:(r.dataset.necesita||'').split(',').filter(Boolean)}});
+    var NOMBRE={};rows.forEach(function(r){NOMBRE[r.dataset.id]=r.querySelector('.nom').childNodes[0].textContent});
+    var CANALES=['wa','voz','mail'],TODO=rows.map(function(r){return r.dataset.id});
+    var EMPEZAR=['base','voz','mail','pre','ppt','rec'];
+    var aviso=document.getElementById('aviso');
+    function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' €'}
+    function on(id){return by[id].inp.checked}
+    function msg(t){if(t){aviso.textContent=t;aviso.classList.add('on')}else{aviso.textContent='';aviso.classList.remove('on')}}
+    function lista(a){return a.map(function(i){return '«'+NOMBRE[i]+'»'}).join(', ')}
+    function render(){
+      var total=0,mes=0,all=true;
+      TODO.forEach(function(id){if(on(id)){total+=by[id].precio;mes+=by[id].mes}else all=false});
+      if(on('con'))mes+=50;
+      var full=TODO.reduce(function(a,id){return a+by[id].precio},0);
+      document.getElementById('sum-total').textContent=fmt(total);
+      document.getElementById('sum-et').textContent=all?'Sistema completo':(TODO.filter(on).sort().join()===EMPEZAR.slice().sort().join()?'Por dónde empezar':'Tu selección');
+      document.getElementById('sum-mes').innerHTML=fmt(mes)+'<small>al mes</small>';
+      var rest=full-total,rEl=document.getElementById('sum-resto');
+      if(rest>0){rEl.hidden=false;document.getElementById('sum-resto-v').textContent=fmt(rest)}else rEl.hidden=true;
+      [].forEach.call(document.querySelectorAll('#cmp li[data-for]'),function(li){
+        var id=li.dataset.for,act=on(id),pr=li.querySelector('.pr');
+        li.classList.toggle('off',!act);
+      });
+      var ct=document.getElementById('cmp-total');
+      ct.innerHTML=fmt(mes)+'<small style="font-family:var(--sans);font-style:normal;font-size:13px;color:var(--stone)"> al mes</small>';
+      var key=TODO.filter(on).sort().join();
+      var pc=document.querySelector('[data-preset="completo"]'),pe=document.querySelector('[data-preset="empezar"]');
+      pc.setAttribute('aria-pressed',key===TODO.slice().sort().join());
+      pe.setAttribute('aria-pressed',key===EMPEZAR.slice().sort().join());
+    }
+    function set(ids){TODO.forEach(function(id){by[id].inp.checked=(id==='base')||ids.indexOf(id)>-1})}
+    document.querySelector('[data-preset="completo"]').addEventListener('click',function(){set(TODO);msg('');render()});
+    document.querySelector('[data-preset="empezar"]').addEventListener('click',function(){set(EMPEZAR);msg('');render()});
+    rows.forEach(function(r){
+      var id=r.dataset.id,d=by[id];
+      if(id==='base')return;
+      d.inp.addEventListener('change',function(){
+        msg('');
+        if(!d.inp.checked){
+          /* al quitar un canal o una funcionalidad salen, en cadena, las que se quedan sin canal o sin la pieza que necesitan */
+          var porCanal=[],porPieza=[],cambio=true;
+          while(cambio){cambio=false;
+            TODO.forEach(function(f){var x=by[f];if(!x.inp.checked||f==='base')return;
+              var sinCanal=x.canales.length&&!x.canales.some(function(c){return on(c)});
+              var falta=x.necesita.filter(function(n){return !on(n)});
+              if(sinCanal||falta.length){x.inp.checked=false;cambio=true;if(sinCanal)porCanal.push(f);else porPieza.push([f,falta[0]])}});
+          }
+          var t='';
+          if(porCanal.length)t='Al quitar «'+NOMBRE[id]+'», '+(porCanal.length>1?'también salen ':'también sale ')+lista(porCanal)+', porque '+(porCanal.length>1?'se quedan':'se queda')+' sin canal.';
+          porPieza.forEach(function(p){t+=(t?' ':'')+(porCanal.length||p[1]!==id?'Y ':'Al quitar «'+NOMBRE[id]+'», ')+(porCanal.length||p[1]!==id?'':'')+'también sale «'+NOMBRE[p[0]]+'», porque comparte el panel con «'+NOMBRE[p[1]]+'» y lo necesita.'});
+          msg(t);
+        }else{
+          var marcadas=[];
+          (function aseg(x){x.necesita.forEach(function(n){if(!on(n)){by[n].inp.checked=true;marcadas.push(n);aseg(by[n])}});
+            if(x.canales.length&&!x.canales.some(function(c){return on(c)})){by[x.canales[0]].inp.checked=true;marcadas.push(x.canales[0])}})(d);
+          if(marcadas.length===1&&by[marcadas[0]].tipo==='canal'&&!d.necesita.length)msg('«'+NOMBRE[id]+'» necesita un canal por el que llegar: hemos marcado «'+NOMBRE[marcadas[0]]+'».');
+          else if(marcadas.length)msg('«'+NOMBRE[id]+'» necesita '+lista(marcadas)+': '+(marcadas.length>1?'las hemos marcado.':'la hemos marcado.'));
+        }
+        render();
+      });
+    });
+    render();
+  })();
+
+  /* ---------- el sistema en movimiento ---------- */
+  (function(){
+    var stage=document.getElementById('fx-stage');if(!stage)return;
+    var NS='http://www.w3.org/2000/svg';
+    var mq=matchMedia('(max-width: 760px)');
+    var wrap=document.getElementById('fx-wrap'),chipsBox=document.getElementById('fx-chips'),play=document.getElementById('fx-play');
+    var scenes=[].slice.call(stage.querySelectorAll('.fx-sc')).map(function(sc){
+      return{el:sc,title:sc.dataset.title,steps:[].slice.call(sc.querySelectorAll('li')).map(function(li){return{from:li.dataset.from||null,to:li.dataset.to,toast:li.dataset.toast,li:li}})}
+    });
+    /* puntos del paso en curso (solo se ven en el bloque compacto de escritorio) */
+    scenes.forEach(function(s){
+      var d=document.createElement('span');d.className='fx-dots';d.setAttribute('aria-hidden','true');
+      s.dots=s.steps.map(function(){var i=document.createElement('i');d.appendChild(i);return i});
+      s.el.insertBefore(d,s.el.firstChild);
+    });
+    function sync(i){var s=scenes[i];s.steps.forEach(function(st,j){var c=s.dots[j].classList,l=st.li.classList;c.toggle('now',l.contains('now'));c.toggle('done',l.contains('done')&&!l.contains('now'))})}
+    var ICON={
+      whats:'<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>',
+      voz:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>',
+      mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+      eina:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16M4 15h16M10 3v18"/>',
+      base:'<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>',
+      op:'<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/>',
+      cita:'<rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M9 15l2 2 4-4"/>',
+      resp:'<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 12l2 2 4-4"/>',
+      recado:'<path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 21h4"/>',
+      ppt:'<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/>',
+      rev:'<circle cx="12" cy="13" r="8"/><path d="M12 13l4-4M12 5v2M4 13h2M18 13h2"/>',
+      rec:'<path d="M4 8l8-4 8 4v8l-8 4-8-4z"/><path d="M4 8l8 4 8-4M12 12v8"/>'
+    };
+    var NODE={
+      whats:['WhatsApp','el número del taller','WhatsApp','del taller'],
+      voz:['Teléfono','con el negocio cerrado','Teléfono','negocio cerrado'],
+      mail:['Correo','respuestas a presupuestos','Correo','presupuestos'],
+      eina:['Datos de la casa','EINA','Datos','de la casa'],
+      op:['Un operario','coloca la cita y confirma','Un operario','confirma la cita'],
+      cita:['Cita','confirmada por el taller','Cita','confirmada'],
+      resp:['Respuesta al cliente','al momento, en su idioma','Respuesta','al momento'],
+      recado:['Recado al equipo','llega a quien toca','Recado','a quien toca'],
+      ppt:['Presupuestos a la vista','con los días de espera','Presupuestos','a la vista'],
+      rev:['Revisión de la moto','la última y la próxima','Revisión','última y próxima'],
+      rec:['Listado para el taller','por modelo y año','Listado','para el taller']
+    };
+    function nodeSVG(id,x,y,w,h,m,src){
+      var n=NODE[id],t=m?n[2]:n[0],s=m?n[3]:n[1],g;
+      if(m&&src){
+        g='<rect class="fx-box" width="'+w+'" height="'+h+'" rx="8"/><rect class="fx-ib" x="'+(w/2-15)+'" y="10" width="30" height="30" rx="6"/><g class="fx-ic" transform="translate('+(w/2-9)+',16) scale(.75)">'+ICON[id]+'</g><text class="fx-t fx-tm" x="'+(w/2)+'" y="57" text-anchor="middle">'+t+'</text><text class="fx-s fx-sm" x="'+(w/2)+'" y="70" text-anchor="middle">'+s+'</text>';
+      }else if(m){
+        g='<rect class="fx-box" width="'+w+'" height="'+h+'" rx="8"/><rect class="fx-ib" x="8" y="'+((h-30)/2)+'" width="30" height="30" rx="6"/><g class="fx-ic" transform="translate(14,'+((h-18)/2)+') scale(.75)">'+ICON[id]+'</g><text class="fx-t fx-tm" x="46" y="'+(h/2-3)+'">'+t+'</text><text class="fx-s fx-sm" x="46" y="'+(h/2+11)+'">'+s+'</text>';
+      }else{
+        g='<rect class="fx-box" width="'+w+'" height="'+h+'" rx="8"/><rect class="fx-ib" x="12" y="'+((h-36)/2)+'" width="36" height="36" rx="6"/><g class="fx-ic" transform="translate(18,'+((h-24)/2)+')">'+ICON[id]+'</g><text class="fx-t" x="60" y="'+(h/2-3)+'">'+t+'</text><text class="fx-s" x="60" y="'+(h/2+14)+'">'+s+'</text>';
+      }
+      return '<g class="fx-node" data-node="'+id+'" transform="translate('+x+','+y+')">'+g+'</g>';
+    }
+    /* emblema de «La Base»: la misma rosa de los vientos de la portada (puntas largas N, S, E, O y cortas en diagonal; cada punta, mitad contorno y mitad con relleno tenue) */
+    function starSVG(){
+      var L=100,S=42,V=16,bg='',fi='',ln='';
+      function pt(th,r){var t=th*Math.PI/180;return (+(r*Math.sin(t)).toFixed(2))+','+(+(-r*Math.cos(t)).toFixed(2))}
+      [[0,L],[90,L],[180,L],[270,L],[45,S],[135,S],[225,S],[315,S]].forEach(function(q){
+        var tip=pt(q[0],q[1]),a='M0,0 L'+tip+' L'+pt(q[0]-22.5,V)+' Z',b='M0,0 L'+tip+' L'+pt(q[0]+22.5,V)+' Z';
+        bg+='<path d="'+a+'"/><path d="'+b+'"/>';fi+='<path d="'+b+'"/>';ln+='<path d="'+a+'"/><path d="'+b+'"/>';
+      });
+      return '<circle class="st-c" r="66"/><circle class="st-c" r="30"/><g class="st-bg">'+bg+'</g><g class="st-fills">'+fi+'</g><g class="st-lines">'+ln+'</g>';
+    }
+    function hubSVG(x,y,k,ty,m){
+      return '<g class="fx-hub'+(m?' fx-hm':'')+'" data-node="base" transform="translate('+x+','+y+')"><g transform="scale('+k+')">'+starSVG()+'</g>'+
+        '<text class="fx-ht" y="'+ty+'" text-anchor="middle">La Base</text></g>';
+    }
+    function build(m){
+      var o=[],E=[],T=[];
+      function edge(k,d){E.push('<path class="fx-wire" pathLength="1" d="'+d+'"/><path class="fx-lit" data-edge="'+k+'" d="'+d+'"/>')}
+      function toast(k,x,y,a){T.push('<g class="fx-toast" data-toast="'+k+'" data-x="'+x+'" data-y="'+y+'" data-a="'+a+'"><rect rx="11" height="22"/><text></text></g>')}
+      var vb,hub;
+      if(!m){
+        vb='0 0 1120 440';
+        var hy=223;
+        o.push('<text class="fx-col" x="0" y="14">por dónde llega</text><text class="fx-col" x="560" y="14" text-anchor="middle">el sistema</text><text class="fx-col" x="884" y="14">lo que sale listo</text>');
+        var src=['whats','voz','mail','eina'],outs=['resp','recado','ppt','rev'];
+        var sy=[hy-114,hy-38,hy+38,hy+114];
+        src.forEach(function(k,i){var cy=sy[i];edge(k+'>base','M236,'+cy+' C350,'+cy+' 380,'+hy+' 498,'+hy);toast(k,248,cy-11,'s')});
+        var oy={cita:50,resp:124,recado:190,ppt:256,rev:322,rec:388};
+        ['resp','recado','ppt','rev'].forEach(function(k){edge('base>'+k,'M622,'+hy+' C740,'+hy+' 790,'+oy[k]+' 884,'+oy[k]);});
+        edge('base>op','M560,'+(hy-62)+' C560,90 580,'+oy.cita+' 640,'+oy.cita);
+        edge('op>cita','M850,'+oy.cita+' L884,'+oy.cita);
+        edge('eina>rec','M236,'+sy[3]+' C400,440 760,440 884,'+oy.rec);
+        hub=hubSVG(560,hy,.62,86,false);
+        src.forEach(function(k,i){o.push(nodeSVG(k,0,sy[i]-24,236,48,false,true))});
+        o.push(nodeSVG('op',640,oy.cita-24,210,48,false));
+        Object.keys(oy).forEach(function(k){o.push(nodeSVG(k,884,oy[k]-24,236,48,false));if(k==='cita')toast(k,896,oy[k]+25,'s');else toast(k,872,oy[k]-11,'e')});
+        toast('op',652,oy.cita+30,'s');toast('base',560,hy+106,'m');
+      }else{
+        vb='0 0 360 676';
+        o.push('<text class="fx-col" x="180" y="16" text-anchor="middle">por dónde llega</text><text class="fx-col" x="30" y="290">sale directo</text><text class="fx-col" x="184" y="290">pasa por el equipo</text>');
+        var sx=[4,93,182,271],src2=['whats','voz','mail','eina'];
+        src2.forEach(function(k,i){var cx=sx[i]+42.5;edge(k+'>base','M'+cx+',102 C'+cx+',134 180,126 180,156');toast(k,180,114,'m')});
+        var ly={resp:300,recado:366,ppt:432,rev:498,rec:564};
+        ['resp','recado','ppt','rev'].forEach(function(k){var cy=ly[k]+26;edge('base>'+k,'M152,224 C110,252 16,250 16,296 L16,'+(cy-12)+' Q16,'+cy+' 30,'+cy)});
+        edge('base>op','M208,224 C232,250 257,262 257,300');
+        edge('op>cita','M257,352 L257,376');
+        edge('eina>rec','M313.5,102 C346,120 346,150 346,180 L346,578 Q346,590 332,590 L176,590');
+        hub=hubSVG(180,196,.4,58,true);
+        src2.forEach(function(k,i){o.push(nodeSVG(k,sx[i],26,85,76,true,true))});
+        Object.keys(ly).forEach(function(k){o.push(nodeSVG(k,30,ly[k],146,52,true));toast(k,180,646,'m')});
+        o.push(nodeSVG('op',184,300,146,52,true));o.push(nodeSVG('cita',184,376,146,52,true));
+        toast('op',180,646,'m');toast('cita',180,646,'m');toast('base',180,270,'m');
+      }
+      var label='Diagrama del sistema: llegan WhatsApp, teléfono, correo y los datos de la casa; la Base los recoge; un operario confirma la cita; salen la respuesta al cliente, el recado al equipo, los presupuestos a la vista, la revisión de la moto y el listado de recambios para el taller. El paso a paso está escrito debajo.';
+      return '<svg class="fx-svg '+(m?'fx-svg-m':'fx-svg-d')+'" style="display:block" viewBox="'+vb+'" role="img" aria-label="'+label+'" xmlns="'+NS+'">'+E.join('')+hub+o.join('')+'<g class="fx-packets"></g>'+T.join('')+'</svg>';
+    }
+
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var svg,pk,lit={};
+    function bind(){
+      wrap.innerHTML=build(mq.matches);
+      svg=wrap.firstChild;pk=svg.querySelector('.fx-packets');lit={};
+      if(!started&&window.fxEntrada)window.fxEntrada.preparar(svg);
+      [].forEach.call(svg.querySelectorAll('.fx-lit'),function(p){var L=p.getTotalLength();p._L=L;p.style.strokeDasharray=L;p.style.strokeDashoffset=L;lit[p.dataset.edge]=p});
+    }
+    var chips=scenes.map(function(s,i){
+      var b=document.createElement('button');b.type='button';b.className='fx-chip';
+      b.innerHTML='<span class="cn">0'+(i+1)+'</span>'+s.title+'<span class="fx-bar"></span>';
+      chipsBox.appendChild(b);return b;
+    });
+    var node=function(k){return svg.querySelector('[data-node="'+k+'"]')};
+    var scene=0,token=0,paused=false,visible=false,started=false,waiters=[],intro=null;
+    /* entrada coreografiada del diagrama (la define el bloque de movimiento, si carga): se termina de golpe si el usuario elige otra situación o cambia el diagrama */
+    function introEnd(){if(intro){var c=intro;intro=null;c.finish()}}
+    var sleep=function(ms){return new Promise(function(r){var t={r:r,left:ms,at:performance.now()};waiters.push(t);t.h=paused?null:setTimeout(function(){done(t)},ms)})};
+    function done(t){waiters=waiters.filter(function(w){return w!==t});t.r()}
+    function holdAll(){var now=performance.now();waiters.forEach(function(w){if(w.h){clearTimeout(w.h);w.h=null;w.left-=now-w.at}})}
+    function resumeAll(){waiters.forEach(function(w){if(!w.h){w.at=performance.now();w.h=setTimeout(function(){done(w)},Math.max(0,w.left))}})}
+    function clearWaiters(){waiters.forEach(function(w){if(w.h)clearTimeout(w.h)});waiters=[]}
+    var ease=function(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2};
+    function travel(edge,ms,my){
+      var p=lit[edge];if(!p)return Promise.resolve();
+      var dot=document.createElementNS(NS,'circle');dot.setAttribute('r',4.5);dot.setAttribute('class','fx-packet');pk.appendChild(dot);
+      return new Promise(function(res){
+        var el=0,last=performance.now();
+        function f(now){
+          if(my!==token){dot.remove();return res()}
+          if(!paused)el+=now-last;last=now;
+          var k=Math.min(1,el/ms),e=ease(k),pt=p.getPointAtLength(e*p._L);
+          dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y);p.style.strokeDashoffset=p._L*(1-e);
+          if(k<1)requestAnimationFrame(f);else{dot.remove();res()}
+        }
+        requestAnimationFrame(f);
+      });
+    }
+    function showToast(k,txt){
+      var g=svg.querySelector('[data-toast="'+k+'"]');if(!g)return;
+      [].forEach.call(svg.querySelectorAll('.fx-toast.on'),function(o){o.classList.remove('on')});
+      var t=g.querySelector('text'),r=g.querySelector('rect');t.textContent=txt;
+      var w=t.getComputedTextLength()+22,x=+g.dataset.x,y=+g.dataset.y,x0=g.dataset.a==='m'?x-w/2:g.dataset.a==='e'?x-w:x;
+      r.setAttribute('width',w);r.setAttribute('x',x0);r.setAttribute('y',y);t.setAttribute('x',x0+11);t.setAttribute('y',y+15);
+      requestAnimationFrame(function(){g.classList.add('on')});
+    }
+    function reset(){
+      [].forEach.call(svg.querySelectorAll('.on,.think'),function(n){n.classList.remove('on','think')});
+      Object.keys(lit).forEach(function(k){lit[k].style.strokeDashoffset=lit[k]._L});
+      pk.innerHTML='';
+    }
+    function mark(i){
+      scenes.forEach(function(s,j){s.el.classList.toggle('on',j===i)});
+      chips.forEach(function(c,j){c.classList.toggle('on',j===i);if(j===i)c.setAttribute('aria-current','step');else c.removeAttribute('aria-current');var b=c.querySelector('.fx-bar');b.style.transition='none';b.style.transform='scaleX(0)'});
+      if(chipsBox.scrollWidth>chipsBox.clientWidth)chipsBox.scrollTo({left:chips[i].offsetLeft-(chipsBox.clientWidth-chips[i].offsetWidth)/2,behavior:reduce?'auto':'smooth'});
+    }
+    function showStatic(i){
+      scene=i;reset();mark(i);
+      scenes[i].steps.forEach(function(st){
+        st.li.classList.remove('now');st.li.classList.add('done');
+        var n=node(st.to);if(n)n.classList.add('on');
+        if(st.from){var f=node(st.from);if(f)f.classList.add('on');var p=lit[st.from+'>'+st.to];if(p)p.style.strokeDashoffset=0}
+      });
+    }
+    function freezeBar(){var b=chips[scene].querySelector('.fx-bar');var m=getComputedStyle(b).transform;var v=m&&m!=='none'?parseFloat(m.split('(')[1]):0;b.style.transition='none';b.style.transform='scaleX('+(isFinite(v)?v:0)+')'}
+    async function run(i){
+      var my=++token;scene=i;reset();mark(i);
+      var steps=scenes[i].steps;
+      steps.forEach(function(s){s.li.classList.remove('now','done')});sync(i);
+      var total=steps.reduce(function(a,s){return a+(s.from?1000:0)+2600},0)+1800;
+      var bar=chips[i].querySelector('.fx-bar');
+      requestAnimationFrame(function(){bar.style.transition='transform '+total+'ms linear';bar.style.transform='scaleX(1)';if(paused)freezeBar()});
+      var hub=node('base');
+      for(var s=0;s<steps.length;s++){
+        if(my!==token)return;
+        var st=steps[s];
+        steps.forEach(function(x,j){x.li.classList.toggle('now',j===s);x.li.classList.toggle('done',j<s)});sync(i);
+        if(st.from){if(st.from==='base')hub.classList.remove('think');await travel(st.from+'>'+st.to,1000,my);if(my!==token)return}
+        var nd=node(st.to);if(nd)nd.classList.add('on');
+        showToast(st.to,st.toast);
+        if(st.to==='base')hub.classList.add('think');
+        await sleep(2600);if(my!==token)return;
+      }
+      steps.forEach(function(x,j){x.li.classList.toggle('now',j===steps.length-1);x.li.classList.add('done')});sync(i);
+      hub.classList.remove('think');
+      await sleep(1800);if(my!==token)return;
+      run((i+1)%scenes.length);
+    }
+    var userPaused=false;
+    function applyPause(){
+      var want=userPaused||!visible||document.hidden;
+      if(intro)intro.pause(want);
+      if(want&&!paused){paused=true;holdAll();freezeBar()}
+      else if(!want&&paused){paused=false;resumeAll();var b=chips[scene].querySelector('.fx-bar');var left=waiters.reduce(function(a,w){return a+w.left},0);b.style.transition='transform '+Math.max(800,left+3000)+'ms linear';b.style.transform='scaleX(1)'}
+    }
+    function setPaused(p){
+      userPaused=p;play.textContent=p?'Continuar':'Pausar';
+      play.setAttribute('aria-label',p?'Continuar la animación':'Pausar la animación');
+      applyPause();
+    }
+    bind();
+    if(reduce){
+      showStatic(0);
+      chips.forEach(function(c,j){c.addEventListener('click',function(){showStatic(j)})});
+      mq.addEventListener('change',function(){bind();showStatic(scene)});
+    }else{
+      play.hidden=false;
+      chips.forEach(function(c,j){c.addEventListener('click',function(){introEnd();clearWaiters();if(userPaused)setPaused(false);run(j)})});
+      play.addEventListener('click',function(){setPaused(!userPaused)});
+      document.addEventListener('visibilitychange',applyPause);
+      mq.addEventListener('change',function(){requestAnimationFrame(function(){introEnd();token++;bind();if(started){clearWaiters();run(scene)}else{mark(0);scenes[0].steps[0].li.classList.add('now');sync(0)}})});
+      mark(0);scenes[0].steps[0].li.classList.add('now');sync(0);
+      new IntersectionObserver(function(es){es.forEach(function(e){
+        visible=e.isIntersecting;
+        if(visible&&!started){
+          started=true;
+          var c=window.fxEntrada?window.fxEntrada.lanzar(svg):null;
+          if(c){intro=c;c.done.then(function(){if(intro===c){intro=null;run(0)}})}else run(0);
+        }
+        applyPause();
+      })},{threshold:0}).observe(wrap);
+    }
+  })();
+})();
+</script>
+
+<script>
+/* línea temporal de «Cómo trabajamos»: clic o teclado abre el texto de una fase; la 2 (Presentación del plan) abierta por defecto; no se reproduce sola */
+(function(){
+  var box=document.getElementById('tlx');if(!box)return;
+  var fs=[].slice.call(box.querySelectorAll('.tlx-f')),mq=matchMedia('(max-width: 760px)');
+  var pn=document.createElement('div');pn.className='tlx-panel';pn.setAttribute('role','region');pn.setAttribute('aria-label','Texto de la fase elegida');
+  box.appendChild(pn);
+  function sel(i,cerrar){
+    fs.forEach(function(f,j){var on=j===i&&!cerrar;f.classList.toggle('on',on);f.querySelector('.tlx-b').setAttribute('aria-expanded',on?'true':'false')});
+    pn.textContent='';
+    var f=fs[i],t=document.createElement('p'),x=document.createElement('p');t.className='tlx-pt';t.textContent=f.querySelector('.tlx-t').textContent;x.textContent=f.querySelector('.tlx-x').textContent;pn.appendChild(t);pn.appendChild(x);
+  }
+  fs.forEach(function(f,i){f.querySelector('.tlx-b').addEventListener('click',function(){sel(i,mq.matches&&f.classList.contains('on'))})});
+  sel(1,false);
+})();
+</script>
+
+<!-- Movimiento: GSAP 3.12.5 y ScrollTrigger, ficheros locales al lado de este. Si no cargan o hay movimiento reducido, la página queda como está. -->
+<script src="gsap.min.js"></script>
+<script src="ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(!window.gsap||!window.ScrollTrigger)return;
+  var gsap=window.gsap,ST=window.ScrollTrigger,root=document.documentElement;
+  try{gsap.registerPlugin(ST)}catch(e){return}
+  ST.config({ignoreMobileResize:true});
+  root.classList.add('gs');
+  /* regla de la página: lo ligado al scroll empieza cuando el borde superior del elemento asoma por abajo (100 %) y está terminado cuando llega al 75 % de la altura de la ventana */
+  var SC=.2;
+  /* posición de un elemento en la página sin contar transformaciones (el aparecer genérico lo desplaza 14 px hasta que entra) */
+  function topAbs(el){var t=0;while(el){t+=el.offsetTop;el=el.offsetParent}return t}
+  function win(el){var s=function(){return Math.max(0,topAbs(el)-innerHeight)};return {trigger:el,start:s,end:function(){return Math.max(s()+1,topAbs(el)-innerHeight*.75)},scrub:SC}}
+  var DUR=.7,EASE='expo.out';          /* una duración y un easing para todo lo que entra */
+  var undo=[];
+  function safe(nombre,fn){try{fn()}catch(e){undo.forEach(function(u){try{u()}catch(_){}});undo=[];root.classList.remove('gs');if(window.console)console.warn('Movimiento desactivado ('+nombre+')')}}
+
+  /* 1 · portada: titular por palabras con máscara + motivo de líneas */
+  safe('portada',function(){
+    var h1=document.querySelector('.hero h1');
+    if(h1){
+      var t=h1.textContent.trim().split(/\s+/);
+      h1.setAttribute('aria-label',t.join(' '));
+      h1.innerHTML=t.map(function(w){return '<span class="wm" aria-hidden="true"><span class="wd">'+w+'</span></span>'}).join(' ');
+      h1.style.animation='none';
+      undo.push(function(){h1.textContent=t.join(' ');h1.style.animation=''});
+      gsap.fromTo(h1.querySelectorAll('.wd'),{yPercent:115},{yPercent:0,duration:DUR+.2,ease:EASE,stagger:.12,delay:.25,clearProps:'transform'});
+    }
+    var m=document.querySelector('.hero-motif');
+    if(!m)return;
+    var circ=m.querySelectorAll('.st-c'),largas=m.querySelectorAll('.st-l path'),cortas=m.querySelectorAll('.st-s path'),rell=m.querySelector('.st-fills'),trazos=[].slice.call(circ).concat([].slice.call(largas),[].slice.call(cortas));
+    gsap.set(trazos,{strokeDasharray:1,strokeDashoffset:1});
+    gsap.set(rell,{opacity:0});
+    undo.push(function(){gsap.set([trazos,rell],{clearProps:'all'})});
+    /* se dibuja al cargar: primero los círculos, luego las puntas largas, luego las cortas y por último el relleno tenue; después queda quieta */
+    var estrella=gsap.timeline({delay:.45})
+      .to(circ,{strokeDashoffset:0,duration:1.6,ease:'power2.inOut',stagger:.25,autoRound:false},0)
+      .to(largas,{strokeDashoffset:0,duration:1.3,ease:'power2.inOut',stagger:.07,autoRound:false},1.1)
+      .to(cortas,{strokeDashoffset:0,duration:1.1,ease:'power2.inOut',stagger:.06,autoRound:false},2.0)
+      .to(rell,{opacity:1,duration:DUR+.5,ease:EASE},3.0)
+;
+    /* tras dibujarse: pausa con la estrella entera, se desdibuja marcha atrás (la misma animación al revés), pausa breve y vuelve a dibujarse, sin fin */
+    estrella.eventCallback('onComplete',function(){gsap.delayedCall(2.6,function(){estrella.reverse()})});
+    estrella.eventCallback('onReverseComplete',function(){gsap.delayedCall(.8,function(){estrella.play()})});
+  });
+
+  /* 2 · cita de Jimmy: palabra a palabra, ligada al scroll */
+  safe('cita',function(){
+    var q=document.querySelector('.cita blockquote');if(!q)return;
+    var txt=q.textContent;
+    q.innerHTML=txt.split(/(\s+)/).map(function(p){return /^\s*$/.test(p)?p:'<span class="w1">'+p+'</span>'}).join('');
+    undo.push(function(){q.textContent=txt});
+    var ws=q.querySelectorAll('.w1');
+    gsap.timeline({scrollTrigger:win(q)})
+      .fromTo(ws,{opacity:.14,yPercent:16},{opacity:1,yPercent:0,ease:'none',stagger:.35,duration:1},0);
+  });
+
+  /* 3 · hoy y con el sistema: fila a fila, sin fijar la pantalla (solo en escritorio) */
+  safe('situaciones',function(){
+    var tabla=document.querySelector('.sit');if(!tabla)return;
+    var mm=gsap.matchMedia();
+    mm.add('(min-width: 761px)',function(){
+      tabla.classList.add('sit-fx');
+      var made=[];
+      [].forEach.call(tabla.querySelectorAll('tbody tr'),function(tr){
+        var hoy=tr.children[1],con=tr.children[2],ln=document.createElement('span');
+        ln.className='sit-ln';ln.setAttribute('aria-hidden','true');con.appendChild(ln);made.push(ln);
+        gsap.timeline({scrollTrigger:win(tr)})
+          .fromTo(hoy,{opacity:1},{opacity:.55,ease:'none'},0)
+          .fromTo(con,{opacity:.14,x:18},{opacity:1,x:0,ease:'none'},0)
+          .fromTo(ln,{scaleY:0},{scaleY:1,ease:'none'},0);
+      });
+      return function(){tabla.classList.remove('sit-fx');made.forEach(function(n){n.remove()});[].forEach.call(tabla.querySelectorAll('td'),function(td){gsap.set(td,{clearProps:'opacity,transform'})})};
+    });
+  });
+
+  /* 4 · cambios de sección clara a oscura: una raya dorada que se traza, la misma en todos */
+  safe('rayas',function(){
+    var prev=true; /* la portada es oscura */
+    [].forEach.call(document.querySelectorAll('main > section'),function(el){
+      var d=el.classList.contains('s--dark');
+      if(d!==prev){
+        var c=document.createElement('span');c.className='cut';c.setAttribute('aria-hidden','true');el.insertBefore(c,el.firstChild);
+        gsap.fromTo(c,{scaleX:0},{scaleX:1,ease:'none',scrollTrigger:win(el)});
+      }
+      prev=d;
+    });
+  });
+
+  /* 5 · plazos: cada fila traza sus barras con el scroll y las tiene completas con su borde superior al 75 % */
+  safe('plazos',function(){
+    var g=document.getElementById('plazos-g');if(!g)return;
+    [].forEach.call(g.querySelectorAll('.pl'),function(l){
+      var pb=l.querySelector('.pl-b');if(!pb)return;
+      gsap.fromTo(l.querySelectorAll('.track i'),{scaleX:0},{scaleX:1,ease:'none',scrollTrigger:win(pb)});
+    });
+  });
+
+  /* 6 · titulares de sección (h2): revelado con máscara palabra a palabra, como el h1, ligado al scroll */
+  safe('titulares',function(){
+    [].forEach.call(document.querySelectorAll('h2.t2'),function(h2){
+      var orig=h2.textContent,ps=orig.trim().split(/\s+/);
+      h2.textContent='';
+      ps.forEach(function(w,i){
+        if(i)h2.appendChild(document.createTextNode(' '));
+        var m=document.createElement('span'),d=document.createElement('span');
+        m.className='wm';d.className='wd';d.textContent=w;m.appendChild(d);h2.appendChild(m);
+      });
+      undo.push(function(){h2.textContent=orig});
+      var wd=h2.querySelectorAll('.wd');
+      gsap.fromTo(wd,{yPercent:115},{yPercent:0,ease:'power3.out',stagger:.18,duration:1,scrollTrigger:win(h2)});
+    });
+  });
+
+  /* 7 · línea de tiempo al hacer scroll: «La decisión» (tres pasos) y «Cómo trabajamos» (los pasos) */
+  safe('lineas',function(){
+    var TIP=1,PASO=.25,max=function(){return ST.maxScroll(window)};
+    function el(tag,cls){var e=document.createElement(tag);if(cls)e.className=cls;return e}
+    function punto(it){
+      var d=el('span','tl-dot');d.setAttribute('aria-hidden','true');
+      var ring=el('i'),core=el('b');d.appendChild(ring);d.appendChild(core);it.appendChild(d);
+      return {d:d,ring:ring,core:core};
+    }
+    /* el texto de un paso es todo lo que tiene antes de que se le añada el punto */
+    function textoDe(it){return [].slice.call(it.children)}
+    function entra(tl,p,txt,pos,dur){
+      tl.fromTo(p.ring,{opacity:0},{opacity:1,ease:'power3.out',duration:dur},pos)
+        .fromTo(p.core,{scale:0},{scale:1,ease:'power3.out',duration:dur},pos)
+        .fromTo(txt,{opacity:0,x:16},{opacity:1,x:0,ease:'power3.out',duration:dur},pos);
+    }
+    /* la punta de la línea va a TIP de la altura de la pantalla; cada punto se enciende cuando la punta lo pasa */
+    function vertical(host,items){
+      var hechos=[],txts=[];
+      host.classList.add('tl-host');
+      var rail=el('span','tl-rail'),ln=el('i');rail.setAttribute('aria-hidden','true');rail.appendChild(ln);
+      items.forEach(function(it){txts.push(textoDe(it));it.classList.add('tl-i')});
+      items.forEach(function(it,k){hechos.push(punto(it).d)});
+      /* en una lista la raya va la primera: si fuese la última, el último paso dejaría de ser li:last-child y perdería su filete inferior */
+      if(host.tagName==='OL')host.insertBefore(rail,host.firstChild);else host.appendChild(rail);
+      var ini=function(it){return function(){return Math.max(0,Math.min(topAbs(it)-innerHeight*TIP,max()-1))}};
+      gsap.fromTo(ln,{scaleY:0},{scaleY:1,ease:'none',scrollTrigger:{trigger:host,start:ini(host),end:function(){return Math.max(ini(host)()+1,Math.min(topAbs(host)+host.offsetHeight-innerHeight*TIP,max()))},scrub:SC}});
+      items.forEach(function(it,k){
+        var s=ini(it),p={ring:hechos[k].children[0],core:hechos[k].children[1]};
+        var tl=gsap.timeline({scrollTrigger:{trigger:it,start:s,end:function(){return Math.min(s()+PASO*innerHeight,max())},scrub:SC}});
+        entra(tl,p,txts[k],0,1);
+      });
+      return function(){
+        rail.remove();hechos.forEach(function(d){d.remove()});
+        items.forEach(function(it,k){it.classList.remove('tl-i');gsap.set(txts[k],{clearProps:'opacity,transform'})});
+        host.classList.remove('tl-host');
+      };
+    }
+    /* en dos columnas los pasos están uno junto a otro: la línea corre en horizontal por encima de los dos */
+    function horizontal(host,items){
+      var hechos=[],txts=[];
+      host.classList.add('tl-host','h');
+      var rail=el('span','tl-rail h'),ln=el('i');rail.setAttribute('aria-hidden','true');rail.appendChild(ln);
+      items.forEach(function(it){txts.push(textoDe(it));it.classList.add('tl-i')});
+      items.forEach(function(it){hechos.push(punto(it).d)});
+      host.appendChild(rail);
+      var tl=gsap.timeline({scrollTrigger:win(host)});
+      tl.fromTo(ln,{scaleX:0},{scaleX:1,ease:'none',duration:1},0);
+      items.forEach(function(it,k){
+        var pos=Math.min(.9,it.offsetLeft/host.offsetWidth);
+        entra(tl,{ring:hechos[k].children[0],core:hechos[k].children[1]},txts[k],pos,.1);
+      });
+      return function(){
+        rail.remove();hechos.forEach(function(d){d.remove()});
+        items.forEach(function(it,k){it.classList.remove('tl-i');gsap.set(txts[k],{clearProps:'opacity,transform'})});
+        host.classList.remove('tl-host','h');
+      };
+    }
+    var tres=document.querySelector('ol.tres');
+    if(tres){var pol=vertical(tres,[].slice.call(tres.children));undo.push(pol)}
+    var pasos=document.querySelector('.pasos');
+    if(pasos){
+      var its=[].slice.call(pasos.querySelectorAll('.paso'));
+      var mm=gsap.matchMedia();
+      var comun=function(fn){
+        /* el aparecer genérico se sustituye por la propia línea: el borde del paso no debe desplazarse con respecto a ella */
+        var tenian=its.filter(function(x){return x.classList.contains('rv')});
+        tenian.forEach(function(x){x.classList.remove('rv')});
+        var quitar=fn(pasos,its);
+        return function(){quitar();tenian.forEach(function(x){x.classList.add('rv')})};
+      };
+      mm.add('(min-width: 761px)',function(){return comun(horizontal)});
+      mm.add('(max-width: 760px)',function(){return comun(vertical)});
+      undo.push(function(){mm.revert()});
+    }
+  });
+
+  /* 8 · «Medimos juntos antes y después.»: un subrayado dorado de 2 px que se traza una vez, bajo esa frase y ninguna otra */
+  safe('subrayado',function(){
+    var p=document.querySelector('p.medimos');if(!p)return;
+    p.classList.add('mk-host');
+    var segs=[],hecho=false;
+    function medir(){
+      segs.forEach(function(s){s.remove()});segs=[];
+      var r=document.createRange();r.selectNodeContents(p);
+      var pr=p.getBoundingClientRect(),rs=[].slice.call(r.getClientRects()).filter(function(q){return q.width>2&&q.height>2});
+      rs.forEach(function(q){
+        var s=document.createElement('span');s.className='mk-ln';s.setAttribute('aria-hidden','true');
+        s.style.left=(q.left-pr.left)+'px';s.style.top=(q.bottom-pr.top+3)+'px';s.style.width=q.width+'px';
+        p.appendChild(s);segs.push(s);gsap.set(s,{scaleX:hecho?1:0});
+      });
+    }
+    function go(){
+      if(hecho)return;hecho=true;
+      var tot=segs.reduce(function(a,s){return a+parseFloat(s.style.width)},0),t=0;
+      segs.forEach(function(s){var d=.8*parseFloat(s.style.width)/tot;gsap.to(s,{scaleX:1,duration:d,delay:t,ease:'power3.out'});t+=d});
+    }
+    medir();
+    ST.addEventListener('refreshInit',medir);
+    undo.push(function(){ST.removeEventListener('refreshInit',medir);segs.forEach(function(s){s.remove()});p.classList.remove('mk-host')});
+    ST.create({trigger:p,start:'top 98%',once:true,onEnter:go,onLeave:go,onEnterBack:go});
+  });
+
+  /* 9 · el sistema en movimiento: coreografía de entrada, solo la primera vez que el diagrama se ve.
+     Aparece la estrella del centro; de ella se trazan las líneas hacia los nodos, escalonadas, y cada nodo aparece al llegar la suya.
+     La lógica del diagrama (pausa, escenas, solo a la vista) es la de siempre: el bloque del diagrama llama a lanzar() cuando empezaría la primera escena. */
+  safe('entrada-diagrama',function(){
+    var ORDEN=['whats>base','base>resp','voz>base','base>recado','mail>base','base>ppt','eina>base','base>rev','base>op','op>cita','eina>rec'];
+    function preparar(svg){if(svg&&svg.classList)svg.classList.add('fx-intro')}
+    function lanzar(svg){
+      preparar(svg);
+      var resolver,done=new Promise(function(r){resolver=r});
+      var hub=svg.querySelector('.fx-hub'),cols=[].slice.call(svg.querySelectorAll('.fx-col')),todos=[hub].concat(cols),wires=[];
+      var tl=gsap.timeline({onComplete:function(){
+        gsap.set(todos.concat(wires),{clearProps:'opacity,strokeDashoffset'});
+        svg.classList.remove('fx-intro');resolver();
+      }});
+      tl.fromTo([hub].concat(cols),{opacity:0},{opacity:1,duration:.4,ease:'power3.out'},0);
+      /* autoRound:false: sin él GSAP redondea a entero los valores en px y el trazo (0 a 1) saltaría de golpe a la mitad en vez de trazarse */
+      ORDEN.forEach(function(k,i){
+        var p=svg.querySelector('.fx-lit[data-edge="'+k+'"]');if(!p)return;
+        var w=p.previousElementSibling,a=k.split('>'),rev=a[1]==='base',dest=rev?a[0]:a[1],n=svg.querySelector('.fx-node[data-node="'+dest+'"]'),t0=.45+i*.09;
+        wires.push(w);if(n)todos.push(n);
+        tl.fromTo(w,{strokeDashoffset:rev?-1:1},{strokeDashoffset:0,duration:.5,ease:'power3.inOut',autoRound:false},t0);
+        if(n)tl.fromTo(n,{opacity:0},{opacity:1,duration:.35,ease:'power3.out'},t0+.4);
+      });
+      return {done:done,pause:function(b){tl.paused(!!b)},finish:function(){if(tl.progress()<1)tl.progress(1)}};
+    }
+    window.fxEntrada={preparar:preparar,lanzar:lanzar};
+    var wrap=document.getElementById('fx-wrap');if(wrap&&wrap.firstChild)preparar(wrap.firstChild);
+    undo.push(function(){delete window.fxEntrada;var s=wrap&&wrap.firstChild;if(s&&s.classList)s.classList.remove('fx-intro')});
+  });
+
+  function refrescar(){ST.refresh()}
+  /* la altura de la página cambia sola (el paso a paso del diagrama mide distinto en cada situación): se recalculan las posiciones, para que la línea de tiempo de «La decisión» acabe completa al llegar al final */
+  if(window.ResizeObserver){
+    var alto=root.scrollHeight,rt=null;
+    new ResizeObserver(function(){clearTimeout(rt);rt=setTimeout(function(){var n=root.scrollHeight;if(Math.abs(n-alto)>2){alto=n;ST.refresh()}},200)}).observe(document.body);
+  }
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(refrescar);
+  addEventListener('load',refrescar);
+})();
+</script>
+</body>
+</html>
